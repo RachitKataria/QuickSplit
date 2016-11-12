@@ -38,5 +38,9 @@ class DeepLinkButton: UIButton {
         return counter
     }
     
+    func getPrice() -> Double {
+        return price
+    }
+    
     
 }
