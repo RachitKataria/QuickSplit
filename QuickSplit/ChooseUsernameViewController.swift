@@ -19,6 +19,8 @@ class ChooseUsernameViewController: UIViewController {
     
     @IBOutlet weak var user3TextField: UITextField!
     @IBOutlet weak var user4TextField: UITextField!
+    
+    var receiptImage : UIImage?
     override func viewDidLoad() {
         super.viewDidLoad()
         
