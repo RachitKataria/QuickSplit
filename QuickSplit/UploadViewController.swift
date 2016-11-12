@@ -16,7 +16,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     var receiptImage : UIImage?
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        splitButton.isHidden = true
         // Do any additional setup after loading the view.
     }
 
