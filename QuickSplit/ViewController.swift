@@ -28,8 +28,7 @@ class ViewController: UIViewController {
     }
     
     func buttonAction(sender: DeepLinkButton!) {
-        print("touched me")
-        print(sender.price)
+        sender.incrementCounter();
     }
 
 
