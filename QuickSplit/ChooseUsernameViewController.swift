@@ -16,14 +16,25 @@ class ChooseUsernameViewController: UIViewController {
     
     @IBOutlet weak var user1TextField: UITextField!
     @IBOutlet weak var user2TextField: UITextField!
-    
     @IBOutlet weak var user3TextField: UITextField!
     @IBOutlet weak var user4TextField: UITextField!
     
     var receiptImage : UIImage?
+
+    var numUsernames:Int = 1;
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        user2TextField.alpha = 1;
+        user2TextField.isEnabled = false
+        
+        user3TextField.alpha = 1;
+        user3TextField.isEnabled = false
+        
+        user4TextField.alpha = 1;
+        user4TextField.isEnabled = false
         // Do any additional setup after loading the view.
     }
 
@@ -34,6 +45,15 @@ class ChooseUsernameViewController: UIViewController {
     
     
     @IBAction func addUserButtonClicked(_ sender: Any) {
+        if(numUsernames == 1) {
+            
+        }
+        if(numUsernames == 1) {
+            
+        }
+        if(numUsernames == 1) {
+            
+        }
     }
     
     @IBAction func doneButtonClicked(_ sender: Any) {
