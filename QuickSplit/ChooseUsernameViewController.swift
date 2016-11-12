@@ -20,7 +20,6 @@ class ChooseUsernameViewController: UIViewController {
     @IBOutlet weak var user4TextField: UITextField!
     
     var numUsernames:Int = 1;
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,17 +40,21 @@ class ChooseUsernameViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
     @IBAction func addUserButtonClicked(_ sender: Any) {
         if(numUsernames == 1) {
-            
+            user2TextField.alpha = 0;
+            user2TextField.isEnabled = true
         }
-        if(numUsernames == 1) {
-            
+        else if(numUsernames == 2) {
+            user3TextField.alpha = 0;
+            user3TextField.isEnabled = true
         }
-        if(numUsernames == 1) {
-            
+        else if(numUsernames == 3) {
+            user4TextField.alpha = 0;
+            user4TextField.isEnabled = true
         }
+        
+        numUsernames += 1
     }
     
     @IBAction func doneButtonClicked(_ sender: Any) {

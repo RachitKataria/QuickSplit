@@ -32,6 +32,7 @@
                                 <state key="normal" title="Split"/>
                                 <connections>
                                     <action selector="splitClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uxF-5I-ZNf"/>
+                                    <segue destination="pgv-jN-LOR" kind="show" identifier="segueToReceiptView" id="Lnj-0e-hSM"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ucG-oh-cJS">
@@ -53,7 +54,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-114.40000000000001" y="80.50974512743629"/>
+            <point key="canvasLocation" x="-665" y="95"/>
         </scene>
         <!--Choose Username View Controller-->
         <scene sceneID="FkK-R4-UxS">
@@ -67,12 +68,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Venmo Usernames" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9QD-pj-2xr">
+                                <rect key="frame" x="97" y="28" width="180" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bg-Fm-Iud">
                                 <rect key="frame" x="112" y="531" width="150" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Add Username"/>
                                 <connections>
-                                    <action selector="addUserButtonClicked:" destination="pgv-jN-LOR" eventType="touchUpInside" id="vJI-Pi-yxY"/>
+                                    <action selector="addUserButtonClicked:" destination="pgv-jN-LOR" eventType="touchUpInside" id="3EG-Lt-EeG"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xPQ-xC-miS">
@@ -80,7 +88,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
-                                    <action selector="doneButtonClicked:" destination="pgv-jN-LOR" eventType="touchUpInside" id="3WH-LD-jZr"/>
+                                    <action selector="doneButtonClicked:" destination="pgv-jN-LOR" eventType="touchUpInside" id="QL0-ub-o0o"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="olM-a5-xAF">
@@ -117,25 +125,11 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add Venmo Usernames" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9QD-pj-2xr">
-                                <rect key="frame" x="97" y="28" width="180" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="addUserButton" destination="7bg-Fm-Iud" id="CcZ-Rc-XCZ"/>
-                        <outlet property="addUserButtonClicked" destination="7bg-Fm-Iud" id="InL-9C-f3a"/>
                         <outlet property="chooseUsersLabel" destination="9QD-pj-2xr" id="m9f-6b-8PK"/>
-                        <outlet property="didClickUser2TextField" destination="AmO-QM-SU7" id="Dqx-c9-Jrq"/>
-                        <outlet property="didClickUser3TextField" destination="z9m-3X-lPN" id="dKN-b1-wNv"/>
-                        <outlet property="didClickUser4TextField" destination="DpL-Xv-QY9" id="CZB-BR-1GG"/>
-                        <outlet property="doneButton" destination="xPQ-xC-miS" id="HFO-K0-ECT"/>
-                        <outlet property="doneButtonClicked" destination="xPQ-xC-miS" id="Zfj-Ip-0L4"/>
                         <outlet property="user1TextField" destination="olM-a5-xAF" id="8Wv-92-x3q"/>
                         <outlet property="user2TextField" destination="AmO-QM-SU7" id="qCR-kJ-rXu"/>
                         <outlet property="user3TextField" destination="z9m-3X-lPN" id="Kha-2e-Bb0"/>
@@ -144,24 +138,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9hh-Dc-GrN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="717.60000000000002" y="81.409295352323838"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="Seq-On-Dvm">
-            <objects>
-                <viewController id="Qpa-gX-RIJ" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Fpa-SS-pQa"/>
-                        <viewControllerLayoutGuide type="bottom" id="pGI-Ub-vUn"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="HWE-AM-enx">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yNn-Wc-C2k" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
+            <point key="canvasLocation" x="365" y="95"/>
         </scene>
     </scenes>
 </document>
