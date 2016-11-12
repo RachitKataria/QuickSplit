@@ -10,6 +10,7 @@ import UIKit
 
 class UploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet weak var uploadFromCameraRoll: UIButton!
     @IBOutlet weak var splitButton: UIButton!
     @IBOutlet weak var uploadButton: UIButton!
     @IBOutlet weak var imageReceipt: UIImageView!
@@ -20,7 +21,16 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func uploadFromCameraRollClicked(_ sender: Any) {
+        let vc = UIImagePickerController()
+        vc.delegate = self
+        vc.allowsEditing = true
+        vc.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        self.present(vc, animated: true, completion: nil)
+
+    }
     @IBAction func splitClicked(_ sender: Any) {
+        
         print("split")
     }
     @IBAction func uploadButtonClicked(_ sender: Any) {
@@ -35,7 +45,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    private func imagePickerController(picker: UIImagePickerController,
+    func imagePickerController(picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         // Get the image captured by the UIImagePickerController
         let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
@@ -47,7 +57,8 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.view.addSubview(imageReceipt)
         self.receiptImage = editedImage
         dismiss(animated: true, completion: nil)
-
+        self.splitButton.isHidden = false
+        print("did finish")
 
     }
     
