@@ -24,8 +24,9 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBAction func uploadFromCameraRollClicked(_ sender: Any) {
         let vc = UIImagePickerController()
         vc.delegate = self
-        vc.allowsEditing = true
-        vc.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        vc.allowsEditing = false
+        vc.sourceType = .photoLibrary
+        vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
 
     }
@@ -36,8 +37,9 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBAction func uploadButtonClicked(_ sender: Any) {
         let vc = UIImagePickerController()
         vc.delegate = self
-        vc.allowsEditing = true
-        vc.sourceType = UIImagePickerControllerSourceType.camera
+        vc.allowsEditing = false
+        vc.sourceType = .camera
+        vc.modalPresentationStyle = .fullScreen
         
         self.present(vc, animated: true, completion: nil)
     }
@@ -45,10 +47,10 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func imagePickerController(picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+
         // Get the image captured by the UIImagePickerController
-        let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
+        let editedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
         // Do something with the images (based on your use case)
         // Dismiss UIImagePickerController to go back to your original view controller
@@ -59,10 +61,33 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         dismiss(animated: true, completion: nil)
         self.splitButton.isHidden = false
         print("did finish")
-
+        
+        let data = UIImageJPEGRepresentation(receiptImage!, 1.0)
+        
+        var request = URLRequest(url: URL(string: "https://api.imgur.com/3/image")!)
+        request.httpMethod = "POST"
+        request.httpBody = data
+        
+        let clientID = "e452e17ad759f66"
+        
+        request.addValue("Client-ID \(clientID)", forHTTPHeaderField: "Authorization")
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {                                                 // check for fundamental networking error
+                print("error=\(error)")
+                return
+            }
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print("response = \(response)")
+            }
+            
+            let responseString = String(data: data, encoding: .utf8)
+            print("responseString = \(responseString)")
+        }
+        task.resume()
     }
-    
-    
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "segueToReceiptView")
