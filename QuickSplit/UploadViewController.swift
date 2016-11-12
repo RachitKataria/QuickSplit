@@ -24,8 +24,9 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBAction func uploadFromCameraRollClicked(_ sender: Any) {
         let vc = UIImagePickerController()
         vc.delegate = self
-        vc.allowsEditing = true
-        vc.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        vc.allowsEditing = false
+        vc.sourceType = .photoLibrary
+        vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true, completion: nil)
 
     }
@@ -36,8 +37,9 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBAction func uploadButtonClicked(_ sender: Any) {
         let vc = UIImagePickerController()
         vc.delegate = self
-        vc.allowsEditing = true
-        vc.sourceType = UIImagePickerControllerSourceType.camera
+        vc.allowsEditing = false
+        vc.sourceType = .camera
+        vc.modalPresentationStyle = .fullScreen
         
         self.present(vc, animated: true, completion: nil)
     }
@@ -45,10 +47,10 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func imagePickerController(picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+
         // Get the image captured by the UIImagePickerController
-        let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
+        let editedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
         // Do something with the images (based on your use case)
         // Dismiss UIImagePickerController to go back to your original view controller
