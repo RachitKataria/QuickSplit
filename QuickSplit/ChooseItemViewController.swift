@@ -51,7 +51,7 @@ class ChooseItemViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func createDeepLinkButtons() {
+    func createDeepLinkButtons() -> [DeepLinkButton]{
         let arr = readReceipt(url: receiptURL) as [NSDictionary]
         
         var dlbarr : [DeepLinkButton] = []
@@ -70,7 +70,9 @@ class ChooseItemViewController: UIViewController {
             let frame = CGRect(x: x, y: y, width: width, height: height)
             let dlb = DeepLinkButton(frame: frame, price: Double(price));
             dlbarr.append(dlb)
+            
         }
+        return dlbarr
         
         
     }
