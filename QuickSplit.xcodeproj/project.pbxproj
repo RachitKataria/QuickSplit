@@ -334,11 +334,8 @@
 				DEVELOPMENT_TEAM = F4P428X9U6;
 				INFOPLIST_FILE = QuickSplit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-<<<<<<< HEAD
-				PRODUCT_BUNDLE_IDENTIFIER = RK.QuickSplitkokokoo;
-=======
+
 				PRODUCT_BUNDLE_IDENTIFIER = RK.QuickSplit1ksdfasd;
->>>>>>> 8e271900268439a70462e7f9a8aec3cf97dd7297
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -351,11 +348,8 @@
 				DEVELOPMENT_TEAM = F4P428X9U6;
 				INFOPLIST_FILE = QuickSplit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-<<<<<<< HEAD
-				PRODUCT_BUNDLE_IDENTIFIER = RK.QuickSplitkokokoo;
-=======
+
 				PRODUCT_BUNDLE_IDENTIFIER = RK.QuickSplit1ksdfasd;
->>>>>>> 8e271900268439a70462e7f9a8aec3cf97dd7297
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
