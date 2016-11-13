@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		52B3ED901DD7F0E700EE44FD /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52B3ED8F1DD7F0E700EE44FD /* CheckoutViewController.swift */; };
 		8AF4C6551DD7AA970067961D /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF4C6541DD7AA970067961D /* UploadViewController.swift */; };
 		8AF4C6571DD7AAC60067961D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF4C6561DD7AAC60067961D /* User.swift */; };
 		BE21A4411DD7E12E000F2BC2 /* ChooseItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE21A4401DD7E12E000F2BC2 /* ChooseItemViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		52B3ED8F1DD7F0E700EE44FD /* CheckoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
 		8AF4C6541DD7AA970067961D /* UploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		8AF4C6561DD7AAC60067961D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		BE21A4401DD7E12E000F2BC2 /* ChooseItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseItemViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				BEDFEC241DD7AC8A002B0CA4 /* ChooseUsernameViewController.swift */,
 				BE21A4401DD7E12E000F2BC2 /* ChooseItemViewController.swift */,
 				8AF4C6541DD7AA970067961D /* UploadViewController.swift */,
+				52B3ED8F1DD7F0E700EE44FD /* CheckoutViewController.swift */,
 				8AF4C6561DD7AAC60067961D /* User.swift */,
 				BEB3482E1DD7983000BD9F6B /* Main.storyboard */,
 				BEB348311DD7983000BD9F6B /* Assets.xcassets */,
@@ -156,6 +159,7 @@
 				BEDFEC231DD7995C002B0CA4 /* DeepLinkButton.swift in Sources */,
 				8AF4C6551DD7AA970067961D /* UploadViewController.swift in Sources */,
 				BEB3482D1DD7983000BD9F6B /* ViewController.swift in Sources */,
+				52B3ED901DD7F0E700EE44FD /* CheckoutViewController.swift in Sources */,
 				BEDFEC251DD7AC8A002B0CA4 /* ChooseUsernameViewController.swift in Sources */,
 				8AF4C6571DD7AAC60067961D /* User.swift in Sources */,
 				BEB3482B1DD7983000BD9F6B /* AppDelegate.swift in Sources */,
