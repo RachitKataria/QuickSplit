@@ -33,10 +33,11 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.present(vc, animated: true, completion: nil)
 
     }
+    
     @IBAction func splitClicked(_ sender: Any) {
-        
         print("split")
     }
+    
     @IBAction func uploadButtonClicked(_ sender: Any) {
         let vc = UIImagePickerController()
         vc.delegate = self
@@ -46,69 +47,44 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         self.present(vc, animated: true, completion: nil)
     }
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
         DispatchQueue.main.async {
             self.activityIndicatorView.isHidden = false
             self.activityIndicatorView.startAnimating()
             self.splitButton.isEnabled = false
         }
-        // Get the image captured by the UIImagePickerController
-        let editedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
+        // Get the image captured by the UIImagePickerController
         // Do something with the images (based on your use case)
         // Dismiss UIImagePickerController to go back to your original view controller
-        self.receiptImage = editedImage
+        self.receiptImage = info[UIImagePickerControllerOriginalImage] as? UIImage
         dismiss(animated: true, completion: nil)
         self.splitButton.isHidden = false
-        print("did finish")
-        let data = UIImageJPEGRepresentation(receiptImage!, 0.1)
-        
-        var request = URLRequest(url: URL(string: "https://api.imgur.com/3/image")!)
-        request.httpMethod = "POST"
-        request.httpBody = data
-        
-        let clientID = "e452e17ad759f66"
-        
-        request.addValue("Client-ID \(clientID)", forHTTPHeaderField: "Authorization")
-        
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data, error == nil else {                                                 // check for fundamental networking error
-                print("error=\(error)")
-                return
+        print("did finish picking image")
+
+        ImgurUpload.upload(image: receiptImage!, completion: {(link: String) -> Void in
+            DispatchQueue.main.async {
+                self.activityIndicatorView.stopAnimating()
+                self.activityIndicatorView.isHidden = true
+                self.splitButton.isEnabled = true
             }
-            
-            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
-                print("statusCode should be 200, but is \(httpStatus.statusCode)")
-                print("response = \(response)")
-            }
-            if let responseDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary {
-                print(responseDictionary)
-                let data1 = responseDictionary["data"] as! NSDictionary
-                let link = data1["link"] as! String
-                print(link)
-                DispatchQueue.main.async {
-                    self.activityIndicatorView.stopAnimating()
-                    self.activityIndicatorView.isHidden = true
-                    self.splitButton.isEnabled = true
-                }
-                self.imageURL = link
-            } else
-            {
-                print("error converting to json")
-            }
-            
-        }
-        task.resume()
+            self.imageURL = link
+        })
+        
+    }
+    
+    
+    // overridden methods
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "segueToReceiptView")
-        {
+        if segue.identifier == "segueToReceiptView" {
             let csvc = segue.destination as! ChooseUsernameViewController
             csvc.receiptImage = self.receiptImage
             csvc.imageURL = self.imageURL

@@ -12,16 +12,25 @@ import UIKit
 
 struct MicrosoftOCR {
     static func loadMicrosoftComputerVisionOCRData(imageURL:String, completion: @escaping (_ result: [String:Any]) -> Void = {_ in }) {
-        // define request parameters
-        let requestURL = "https://api.projectoxford.ai/vision/v1.0/ocr"
-        let subscriptionKey = "85d0480addf8496aa398907299eb56af"
-        let jsonString = "{\"url\":\"" + imageURL + "\"}"
-        
+
+        // rapid api DOES NOT WORK.
+//        let username = "QuickSplit"
+//        let password = "4a44466c-09c3-4015-ba96-446b7c1340bc"
+//        let loginString = String(format: "%@:%@", username, password)
+//        let loginData = loginString.data(using: String.Encoding.utf8)!
+//        let base64LoginString = loginData.base64EncodedString()
+//        let requestURL = "https://rapidapi.io/connect/MicrosoftComputerVision/ocr"
+//        let subscriptionKey = "85d0480addf8496aa398907299eb56af"
+//        let postString = String(format: "image=%@&subscriptionKey=%@&", imageURL, subscriptionKey)
+//        let postData = postString.data(using: String.Encoding.utf8, allowLossyConversion: true)
         
         // configure request
+        let requestURL = "https://api.projectoxford.ai/vision/v1.0/ocr"
+        let jsonString = "{\"url\":\"" + imageURL + "\"}"
         var request = URLRequest(url: URL(string: requestURL)!)
         request.httpMethod = "POST"
         request.httpBody = jsonString.data(using: String.Encoding.utf8, allowLossyConversion: true)
+//        request.setValue(base64LoginString, forHTTPHeaderField: "Authorization")
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("85d0480addf8496aa398907299eb56af", forHTTPHeaderField: "Ocp-Apim-Subscription-Key")
         

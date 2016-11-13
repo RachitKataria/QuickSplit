@@ -21,6 +21,7 @@
 		BEDFEC251DD7AC8A002B0CA4 /* ChooseUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDFEC241DD7AC8A002B0CA4 /* ChooseUsernameViewController.swift */; };
 		F22226691DD82478006E598A /* MicrosoftOCR.swift in Sources */ = {isa = PBXBuildFile; fileRef = F22226681DD82478006E598A /* MicrosoftOCR.swift */; };
 		F222266B1DD82480006E598A /* Venmo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F222266A1DD82480006E598A /* Venmo.swift */; };
+		F293F3711DD86ED0000812B9 /* ImgurUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = F293F3701DD86ED0000812B9 /* ImgurUpload.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		BEDFEC241DD7AC8A002B0CA4 /* ChooseUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseUsernameViewController.swift; sourceTree = "<group>"; };
 		F22226681DD82478006E598A /* MicrosoftOCR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicrosoftOCR.swift; sourceTree = "<group>"; };
 		F222266A1DD82480006E598A /* Venmo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Venmo.swift; sourceTree = "<group>"; };
+		F293F3701DD86ED0000812B9 /* ImgurUpload.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImgurUpload.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 		F222266F1DD846D4006E598A /* ApiInterface */ = {
 			isa = PBXGroup;
 			children = (
+				F293F3701DD86ED0000812B9 /* ImgurUpload.swift */,
 				F22226681DD82478006E598A /* MicrosoftOCR.swift */,
 				F222266A1DD82480006E598A /* Venmo.swift */,
 			);
@@ -209,6 +212,7 @@
 				BEDFEC231DD7995C002B0CA4 /* OverlayButton.swift in Sources */,
 				8AF4C6551DD7AA970067961D /* UploadViewController.swift in Sources */,
 				BEB3482D1DD7983000BD9F6B /* ViewController.swift in Sources */,
+				F293F3711DD86ED0000812B9 /* ImgurUpload.swift in Sources */,
 				8AF4C6931DD821890067961D /* Checkout2ViewController.swift in Sources */,
 				BEDFEC251DD7AC8A002B0CA4 /* ChooseUsernameViewController.swift in Sources */,
 				BE21A4431DD85CC3000F2BC2 /* UsernameTableViewCell.swift in Sources */,
