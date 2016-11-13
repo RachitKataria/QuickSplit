@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,64 +22,69 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="AW3-ZF-Dms">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="AW3-ZF-Dms">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group" translatesAutoresizingMaskIntoConstraints="NO" id="Put-0c-xHG">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Group" translatesAutoresizingMaskIntoConstraints="NO" id="Put-0c-xHG">
                                 <rect key="frame" x="21" y="111" width="333" height="444"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Put-0c-xHG" secondAttribute="height" multiplier="3:4" id="DJ3-rU-FmO"/>
-                                    <constraint firstAttribute="height" constant="444" id="UMh-yP-DBx"/>
-                                    <constraint firstAttribute="width" constant="333" id="sBz-s3-kTO"/>
+                                    <constraint firstAttribute="height" constant="357" id="isO-zc-t3h"/>
+                                    <constraint firstAttribute="width" constant="249" id="tbd-9D-szh"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ucG-oh-cJS">
                                 <rect key="frame" x="156" y="579" width="64" height="64"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="64" id="0Bs-qf-cDP"/>
-                                    <constraint firstAttribute="height" constant="64" id="4Td-wW-24u"/>
-                                    <constraint firstAttribute="width" secondItem="ucG-oh-cJS" secondAttribute="height" multiplier="1:1" id="Rhb-ZP-IC1"/>
+                                    <constraint firstAttribute="height" constant="55" id="FuY-PJ-JBP"/>
+                                    <constraint firstAttribute="width" constant="55" id="Ohy-8c-vPs"/>
                                 </constraints>
                                 <state key="normal" image="CameraButton"/>
                                 <connections>
                                     <action selector="uploadButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bJq-ke-7b7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PgF-3y-jnX">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PgF-3y-jnX">
                                 <rect key="frame" x="242" y="599" width="25" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="93L-sI-ONB"/>
+                                    <constraint firstAttribute="width" constant="50" id="uaM-KP-4GI"/>
+                                </constraints>
                                 <state key="normal" image="grid-view"/>
                                 <connections>
                                     <action selector="uploadFromCameraRollClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hhh-NF-Psx"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="SPLIT" translatesAutoresizingMaskIntoConstraints="NO" id="1a6-FW-kan">
-                                <rect key="frame" x="143" y="34" width="90" height="32"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SPLIT" translatesAutoresizingMaskIntoConstraints="NO" id="1a6-FW-kan">
+                                <rect key="frame" x="143" y="40" width="90" height="32"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="0on-2Z-1By"/>
-                                    <constraint firstAttribute="width" secondItem="1a6-FW-kan" secondAttribute="height" multiplier="45:16" id="6PK-3j-G2f"/>
-                                    <constraint firstAttribute="width" constant="90" id="F3x-xE-9xL"/>
+                                    <constraint firstAttribute="width" constant="90" id="FLS-b7-ntm"/>
+                                    <constraint firstAttribute="height" constant="32" id="Q0R-QC-OHO"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Snap your receipt, split the bill" translatesAutoresizingMaskIntoConstraints="NO" id="mr9-Ya-eCr">
-                                <rect key="frame" x="87" y="73" width="200" height="16"/>
+                                <rect key="frame" x="88" y="23" width="200" height="128"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="0LC-80-Vhb"/>
-                                    <constraint firstAttribute="height" constant="16" id="xZS-zZ-WNF"/>
+                                    <constraint firstAttribute="width" constant="240" id="NJi-ya-fph"/>
+                                    <constraint firstAttribute="height" constant="128" id="tSM-nx-83o"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="mr9-Ya-eCr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2jm-Zq-Oy8"/>
-                            <constraint firstItem="1a6-FW-kan" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="18" id="BGi-Ro-LU8"/>
-                            <constraint firstItem="ucG-oh-cJS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="KhY-k4-U7z"/>
-                            <constraint firstItem="Put-0c-xHG" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="MdL-SR-2b9"/>
-                            <constraint firstItem="1a6-FW-kan" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="a9s-qg-UaV"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ucG-oh-cJS" secondAttribute="bottom" constant="25" id="mDP-dK-kAr"/>
-                            <constraint firstItem="Put-0c-xHG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pNb-ky-1iR"/>
-                            <constraint firstItem="mr9-Ya-eCr" firstAttribute="top" secondItem="1a6-FW-kan" secondAttribute="bottom" constant="8" id="qy8-bq-MMB"/>
+                            <constraint firstItem="mr9-Ya-eCr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3LG-MB-gyO"/>
+                            <constraint firstItem="PgF-3y-jnX" firstAttribute="top" secondItem="Put-0c-xHG" secondAttribute="bottom" constant="26" id="Hp8-fF-zEP"/>
+                            <constraint firstItem="ucG-oh-cJS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="60" id="JPg-om-muk"/>
+                            <constraint firstItem="1a6-FW-kan" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="KVH-EW-FDh"/>
+                            <constraint firstItem="ucG-oh-cJS" firstAttribute="top" secondItem="Put-0c-xHG" secondAttribute="bottom" constant="20" id="Met-A7-k9A"/>
+                            <constraint firstItem="mr9-Ya-eCr" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="VXj-2u-9Ek"/>
+                            <constraint firstItem="Put-0c-xHG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cAC-GK-odw"/>
+                            <constraint firstItem="1a6-FW-kan" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="etX-R5-Rw2"/>
+                            <constraint firstItem="Put-0c-xHG" firstAttribute="top" secondItem="mr9-Ya-eCr" secondAttribute="bottom" constant="-32" id="ixb-5e-x4V"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="AW3-ZF-Dms" secondAttribute="bottom" id="izQ-rq-qnA"/>
+                            <constraint firstItem="AW3-ZF-Dms" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="o8x-UH-wFh"/>
+                            <constraint firstAttribute="trailing" secondItem="AW3-ZF-Dms" secondAttribute="trailing" id="oV0-nu-EGO"/>
+                            <constraint firstItem="PgF-3y-jnX" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="-75" id="v7m-1T-auJ"/>
+                            <constraint firstItem="AW3-ZF-Dms" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="xPB-Zd-es9"/>
                         </constraints>
                     </view>
                     <connections>
@@ -128,7 +132,7 @@
                                 <state key="normal" image="Charge"/>
                                 <connections>
                                     <action selector="clickedChargeButton:" destination="pgv-jN-LOR" eventType="touchUpInside" id="WK3-Sa-8EH"/>
-                                    <segue destination="uvH-rh-ScO" kind="show" identifier="showVenmoVC" id="byH-2L-p1e"/>
+                                    <segue destination="uvH-rh-ScO" kind="show" identifier="lol" id="wYD-eT-UsK"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eKy-LJ-bdt">
@@ -143,7 +147,7 @@
                                         <rect key="frame" x="0.0" y="28" width="310" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hfg-fh-Chi" id="bU6-aj-rN2">
-                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EcI-QP-MSd">
@@ -260,7 +264,7 @@
                                 </constraints>
                                 <state key="normal" title="Done"/>
                                 <connections>
-                                    <action selector="doneButtonClicked:" destination="yXz-Oi-Hqn" eventType="touchUpInside" id="uwP-J2-Pxh"/>
+                                    <action selector="doneButtonClicked:" destination="yXz-Oi-Hqn" eventType="touchUpInside" id="jdG-sN-7yl"/>
                                     <segue destination="pgv-jN-LOR" kind="show" identifier="doneButtonToUsernameVC" id="Gc0-jT-Rci"/>
                                 </connections>
                             </button>
@@ -417,6 +421,6 @@
         <image name="grid-view" width="75" height="66"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="J6J-JK-rBf"/>
+        <segue reference="Gc0-jT-Rci"/>
     </inferredMetricsTieBreakers>
 </document>

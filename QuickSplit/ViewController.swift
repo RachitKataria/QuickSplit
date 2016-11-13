@@ -12,6 +12,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        UIApplication.shared.statusBarStyle = .lightContent
+        
+        
         let price = 10.0;
         let frame = CGRect(x: 30, y: 20, width: 50, height: 50)
         let button = OverlayButton(frame: frame, price: price)
@@ -30,7 +33,13 @@ class ViewController: UIViewController {
     func buttonAction(sender: OverlayButton!) {
         sender.incrementCounter();
     }
-
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
+        
+    }
 
 }
 
