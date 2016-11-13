@@ -14,6 +14,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var splitButton: UIButton!
     @IBOutlet weak var uploadButton: UIButton!
     @IBOutlet weak var imageReceipt: UIImageView!
+    var imageURL : String?
     var receiptImage : UIImage?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,9 +83,17 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
                 print("statusCode should be 200, but is \(httpStatus.statusCode)")
                 print("response = \(response)")
             }
+            if let responseDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as? NSDictionary {
+                print(responseDictionary)
+                let data1 = responseDictionary["data"] as! NSDictionary
+                let link = data1["link"] as! String
+                print(link)
+                self.imageURL = link
+            } else
+            {
+                print("error converting to json")
+            }
             
-            let responseString = String(data: data, encoding: .utf8)
-            print("responseString = \(responseString)")
         }
         task.resume()
     }
@@ -94,6 +103,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         {
             let csvc = segue.destination as! ChooseUsernameViewController
             csvc.receiptImage = self.receiptImage
+            csvc.imageURL = self.imageURL
         }
     }
 
