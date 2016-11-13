@@ -22,6 +22,9 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
     var numUsernames:Int = 1;
     var usernames: [String] = []
     
+    var usernameToButtonMap: [String:[OverlayButton]] = [:]
+    
+    
     weak var addAlertAction: UIAlertAction?
     
     @IBOutlet weak var usernameTableView: UITableView!
@@ -92,18 +95,10 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
         
         self.present(alert, animated: true, completion: nil)
 
-
     }
     
     @IBAction func doneButtonClicked(_ sender: Any) {
-        let textfields: [UITextField] = [user1TextField, user2TextField, user3TextField, user4TextField]
-
         
-        for textfield in textfields {
-            if(textfield.isEnabled) {
-                usernames.insert(textfield.text!, at: usernames.count)
-            }
-        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -136,5 +131,10 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
         let textField = notification.object as! UITextField
         addAlertAction!.isEnabled = (textField.text != "")
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //
+    }
+
     
 }
