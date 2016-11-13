@@ -14,7 +14,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         let price = 10.0;
         let frame = CGRect(x: 30, y: 20, width: 50, height: 50)
-        let button = DeepLinkButton(frame: frame, price: price)
+        let button = OverlayButton(frame: frame, price: price)
         button.backgroundColor = UIColor.black
         button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         button.setTitle("Test", for: .normal)
@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func buttonAction(sender: DeepLinkButton!) {
+    func buttonAction(sender: OverlayButton!) {
         sender.incrementCounter();
     }
 

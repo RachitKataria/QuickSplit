@@ -1,5 +1,5 @@
 //
-//  DeepLinkButton.swift
+//  OverlayButton.swift
 //  QuickSplit
 //
 //  Created by Rachit K on 11/12/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DeepLinkButton: UIButton {
+class OverlayButton: UIButton {
 
     var price: Double
     var counter:Int

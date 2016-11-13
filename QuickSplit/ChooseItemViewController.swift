@@ -16,8 +16,8 @@ class ChooseItemViewController: UIViewController {
     var counter = 0
     var users: [User] = []
     
-    var usernameToButtonMap: [String:[DeepLinkButton]] = [:]
-    var buttons : [DeepLinkButton] = []
+    var usernameToButtonMap: [String:[OverlayButton]] = [:]
+    var buttons : [OverlayButton] = []
     
     @IBOutlet weak var receiptImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -44,7 +44,7 @@ class ChooseItemViewController: UIViewController {
         }
     }
 
-    func buttonAction(sender: DeepLinkButton!) {
+    func buttonAction(sender: OverlayButton!) {
         sender.checkSelected()
     }
 
@@ -53,9 +53,9 @@ class ChooseItemViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func createDeepLinkButtons(result: [[String:Any]]) {
+    func createOverlayButtons(result: [[String:Any]]) {
         
-        var dlbarr : [DeepLinkButton] = []
+        var dlbarr : [OverlayButton] = []
         for a in result {
             
             let boundaries = a["boundingBox"] as! [String:Any]
@@ -80,7 +80,7 @@ class ChooseItemViewController: UIViewController {
             
             let frame = CGRect(x: xoffset, y: yoffset, width: widthScaled, height: heightScaled)
             
-            let dlb = DeepLinkButton(frame: frame, price: Double(price));
+            let dlb = OverlayButton(frame: frame, price: Double(price));
             dlbarr.append(dlb)
             
             
@@ -152,7 +152,7 @@ class ChooseItemViewController: UIViewController {
     }
     */
     func readReceipt(url: String) -> Void {
-        MicrosoftOCR.loadAndParse(imageURL: receiptURL , completion: createDeepLinkButtons)
+        MicrosoftOCR.loadAndParse(imageURL: receiptURL , completion: createOverlayButtons)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "lol") {
