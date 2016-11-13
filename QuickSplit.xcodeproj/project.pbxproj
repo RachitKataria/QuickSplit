@@ -160,7 +160,7 @@
 				TargetAttributes = {
 					BEB348261DD7982F00BD9F6B = {
 						CreatedOnToolsVersion = 8.1;
-						DevelopmentTeam = F4P428X9U6;
+						DevelopmentTeam = W56W37KQ33;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -331,11 +331,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = F4P428X9U6;
+				DEVELOPMENT_TEAM = W56W37KQ33;
 				INFOPLIST_FILE = QuickSplit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-
-				PRODUCT_BUNDLE_IDENTIFIER = RK.QuickSplit1ksdfasd;
+				PRODUCT_BUNDLE_IDENTIFIER = "RK.QuickSplit-AJ";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -345,11 +344,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = F4P428X9U6;
+				DEVELOPMENT_TEAM = W56W37KQ33;
 				INFOPLIST_FILE = QuickSplit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-
-				PRODUCT_BUNDLE_IDENTIFIER = RK.QuickSplit1ksdfasd;
+				PRODUCT_BUNDLE_IDENTIFIER = "RK.QuickSplit-AJ";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
