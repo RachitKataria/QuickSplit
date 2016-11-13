@@ -36,10 +36,6 @@ class ChooseItemViewController: UIViewController {
         
         readReceipt(url: receiptURL)
         
-        for button in buttons {
-            button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-        }
-        
         // do shit to imageview
         receiptImageView.layer.masksToBounds = false
         receiptImageView.clipsToBounds = true

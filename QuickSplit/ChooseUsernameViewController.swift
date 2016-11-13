@@ -21,6 +21,8 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
     var usernameToButtonMap: [String:[OverlayButton]] = [:]
     var users: [User] = []
     
+    var buttonYToCountMap: [CGFloat:Int] = [:]
+    
     
     weak var addAlertAction: UIAlertAction?
     
@@ -95,9 +97,23 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
     @IBAction func clickedChargeButton(_ sender: Any) {
         
         var price: Double = 0
+        
         for username in usernameToButtonMap.keys {
             for button in usernameToButtonMap[username]! {
-                price += button.getPrice() / Double(button.getCount())
+                if(buttonYToCountMap[button.frame.minY] == nil) {
+                    buttonYToCountMap[button.frame.minY] = 1
+                }
+                else {
+                    buttonYToCountMap[button.frame.minY]! += 1
+                }
+            }
+        }
+        
+        for username in usernameToButtonMap.keys {
+            for button in usernameToButtonMap[username]! {
+                if(buttonYToCountMap[button.frame.minY] != nil) {
+                    price += button.getPrice() / Double(buttonYToCountMap[button.frame.minY]!)
+                }
             }
             
             let user = User(usrname: username, price: price)
@@ -105,6 +121,8 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
             
             price = 0
         }
+        
+        
         
         performSegue(withIdentifier: "showVenmoVC", sender: nil)
         
