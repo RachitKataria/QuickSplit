@@ -88,7 +88,7 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
             price = 0
         }
         
-        performSegue(withIdentifier: "lol", sender: nil)
+        performSegue(withIdentifier: "showVenmoVC", sender: nil)
         
     }
     
@@ -107,7 +107,7 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
             csvc.usernames = self.usernames
             csvc.usernameToButtonMap = self.usernameToButtonMap
         }
-        else if(segue.identifier == "lol") {
+        else if(segue.identifier == "showVenmoVC") {
             let a = segue.destination as! Checkout2ViewController
             a.arrayUsers = users
         }

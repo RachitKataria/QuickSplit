@@ -133,19 +133,16 @@ class ChooseItemViewController: UIViewController {
     }
     
     @IBAction func doneButtonClicked(_ sender: Any) {
-        
         for button in buttons {
             if(button.selecteder) {
                 usernameToButtonMap[username!]!.append(button)
             }
         }
         
-        
         for button in buttons {
             button.reset()
         }
     }
-    
     
     func readReceipt(url: String) -> Void {
         MicrosoftOCR.loadAndParse(imageURL: receiptURL , completion: createOverlayButtons)

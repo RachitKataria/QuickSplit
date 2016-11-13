@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -157,7 +157,7 @@
                                 <state key="normal" image="Charge"/>
                                 <connections>
                                     <action selector="clickedChargeButton:" destination="pgv-jN-LOR" eventType="touchUpInside" id="WK3-Sa-8EH"/>
-                                    <action selector="doneButtonClicked:" destination="pgv-jN-LOR" eventType="touchUpInside" id="QL0-ub-o0o"/>
+                                    <segue destination="uvH-rh-ScO" kind="show" identifier="showVenmoVC" id="byH-2L-p1e"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eKy-LJ-bdt">
@@ -172,7 +172,7 @@
                                         <rect key="frame" x="0.0" y="28" width="310" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hfg-fh-Chi" id="bU6-aj-rN2">
-                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EcI-QP-MSd">
@@ -273,7 +273,7 @@
                                 </constraints>
                                 <state key="normal" title="Done"/>
                                 <connections>
-                                    <action selector="doneButtonClicked:" destination="yXz-Oi-Hqn" eventType="touchUpInside" id="jdG-sN-7yl"/>
+                                    <action selector="doneButtonClicked:" destination="yXz-Oi-Hqn" eventType="touchUpInside" id="uwP-J2-Pxh"/>
                                     <segue destination="pgv-jN-LOR" kind="show" identifier="doneButtonToUsernameVC" id="Gc0-jT-Rci"/>
                                 </connections>
                             </button>
@@ -326,7 +326,6 @@
                         <outlet property="activityIndicator" destination="aCh-Ab-PUt" id="kVf-Bd-qrq"/>
                         <outlet property="receiptImageView" destination="GN5-MD-P6d" id="rac-Mr-VKC"/>
                         <outlet property="usernameLabel" destination="epB-W8-V5f" id="UUQ-jZ-xye"/>
-                        <segue destination="uvH-rh-ScO" kind="presentation" identifier="lol" id="OoL-WZ-sy6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vxx-vG-1Mh" userLabel="First Responder" sceneMemberID="firstResponder"/>
