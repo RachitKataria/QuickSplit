@@ -18,6 +18,7 @@
 		BEB348351DD7983000BD9F6B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEB348331DD7983000BD9F6B /* LaunchScreen.storyboard */; };
 		BEDFEC231DD7995C002B0CA4 /* DeepLinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDFEC221DD7995C002B0CA4 /* DeepLinkButton.swift */; };
 		BEDFEC251DD7AC8A002B0CA4 /* ChooseUsernameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEDFEC241DD7AC8A002B0CA4 /* ChooseUsernameViewController.swift */; };
+		F20C45FA1DD7FD11007FB7EF /* MicrosoftOCR.swift in Sources */ = {isa = PBXBuildFile; fileRef = F20C45F91DD7FD11007FB7EF /* MicrosoftOCR.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		BEB348361DD7983000BD9F6B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BEDFEC221DD7995C002B0CA4 /* DeepLinkButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeepLinkButton.swift; sourceTree = "<group>"; };
 		BEDFEC241DD7AC8A002B0CA4 /* ChooseUsernameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseUsernameViewController.swift; sourceTree = "<group>"; };
+		F20C45F91DD7FD11007FB7EF /* MicrosoftOCR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicrosoftOCR.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +52,7 @@
 		BEB3481E1DD7982F00BD9F6B = {
 			isa = PBXGroup;
 			children = (
+				F20C45F91DD7FD11007FB7EF /* MicrosoftOCR.swift */,
 				BEB348291DD7983000BD9F6B /* QuickSplit */,
 				BEB348281DD7983000BD9F6B /* Products */,
 			);
@@ -156,6 +159,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE21A4411DD7E12E000F2BC2 /* ChooseItemViewController.swift in Sources */,
+				F20C45FA1DD7FD11007FB7EF /* MicrosoftOCR.swift in Sources */,
 				BEDFEC231DD7995C002B0CA4 /* DeepLinkButton.swift in Sources */,
 				8AF4C6551DD7AA970067961D /* UploadViewController.swift in Sources */,
 				BEB3482D1DD7983000BD9F6B /* ViewController.swift in Sources */,
