@@ -105,6 +105,7 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
             csvc.receiptURL = self.imageURL!
             csvc.username = usernames[self.usernameTableView.indexPathForSelectedRow!.row]
             csvc.usernames = self.usernames
+            csvc.usernameToButtonMap = self.usernameToButtonMap
         }
         else if(segue.identifier == "lol") {
             let a = segue.destination as! Checkout2ViewController
