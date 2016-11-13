@@ -42,7 +42,7 @@ class Checkout2ViewController: UIViewController {
             }
             
             for i in 0...self.arrayButtons.capacity - 1 {
-                self.arrayButtons[i].tag = i + 1
+                self.arrayButtons[i].tag = i
             }
             
             for i in 0...self.arrayButtons.capacity - 1 {
