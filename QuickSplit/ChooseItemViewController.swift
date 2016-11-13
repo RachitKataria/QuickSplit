@@ -32,11 +32,12 @@ class ChooseItemViewController: UIViewController {
         usernameLabel.text = usernames[counter]
         // Do any additional setup after loading the view.
         
+        readReceipt(url: receiptURL)
+        
         for username in usernames {
             usernameToButtonMap[username] = nil
         }
         
-        buttons = createDeepLinkButtons()
         
         for button in buttons {
             button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
@@ -51,22 +52,19 @@ class ChooseItemViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func createDeepLinkButtons() -> [DeepLinkButton]{
-        let arr = readReceipt(url: receiptURL) as [NSDictionary]
+    
+    func createDeepLinkButtons(result: [[String:Any]]) {
         
         var dlbarr : [DeepLinkButton] = []
-        for a in arr {
-            let boundaries = a["boundaryBox"] as! NSDictionary
+        for a in result {
+            
+            let boundaries = a["boundingBox"] as! [String:Any]
             let y = boundaries["top"] as! Int
             let x = boundaries["left"] as! Int
             let width = boundaries["width"] as! Int
             let height = boundaries["height"] as! Int
             let price = a["price"] as! Float
-            print(y)
-            print(x)
-            print(width)
-            print(height)
-            print(price)
+            
             //Scale and offset
             let yscaled = Double(y)/9
             let xscaled = Double(x)/9
@@ -74,21 +72,38 @@ class ChooseItemViewController: UIViewController {
             let heightScaled = Double(height)/9
             let yoffset = yscaled + 93
             let xoffset = xscaled + 19
+            print("a button")
+            print(yscaled)
+            print(xscaled)
+            print(widthScaled)
+            print(heightScaled)
+            
             let frame = CGRect(x: xoffset, y: yoffset, width: widthScaled, height: heightScaled)
             
             let dlb = DeepLinkButton(frame: frame, price: Double(price));
             dlbarr.append(dlb)
             
+            
         }
-        return dlbarr
-        
+    
+        buttons = dlbarr
+
+        DispatchQueue.main.async(){
+            //code
+
+            for buttony in self.buttons {
+                self.view.addSubview(buttony)
+                buttony.alpha = 0.4
+                buttony.addTarget(self, action: #selector(self.buttonAction), for: .touchUpInside)
+            }
+        }
         
     }
     
     @IBAction func doneButtonClicked(_ sender: Any) {
         
         for button in buttons {
-            if(button.isSelected) {
+            if(button.selecteder) {
                 usernameToButtonMap[usernames[counter]]!.append(button)
             }
         }
@@ -121,9 +136,6 @@ class ChooseItemViewController: UIViewController {
         }
     }
     
-    
-    
-    
 
     /*
     // MARK: - Navigation
@@ -134,9 +146,8 @@ class ChooseItemViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    func readReceipt(url: String) -> [NSDictionary]{
-        let arr = [NSDictionary]()
-        return arr as! [NSDictionary]
+    func readReceipt(url: String) -> Void {
+        let mOCR = MicrosoftOCR()
+        mOCR.loadAndParse(imageURL: receiptURL , completion: createDeepLinkButtons)
     }
-
 }
