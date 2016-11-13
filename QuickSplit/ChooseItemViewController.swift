@@ -40,6 +40,19 @@ class ChooseItemViewController: UIViewController {
             button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         }
         
+        // do shit to imageview
+        receiptImageView.layer.masksToBounds = false
+        receiptImageView.clipsToBounds = true
+        receiptImageView.layer.cornerRadius = 5
+        receiptImageView.layer.borderWidth = 2
+        receiptImageView.layer.borderColor = UIColor(red: 0.0, green:0.0, blue:0.0, alpha: 0.5).cgColor
+        
+//        receiptImageView.layer.shadowOpacity = 0.25
+//        receiptImageView.layer.shadowColor = UIColor.black.cgColor
+//        receiptImageView.layer.shadowOffset = CGSize(width: 0.0, height: 6.0)
+//        receiptImageView.layer.shadowRadius = 14
+//        receiptImageView.layer.shouldRasterize = true
+        
     }
     
     func buttonAction(sender: OverlayButton!) {
