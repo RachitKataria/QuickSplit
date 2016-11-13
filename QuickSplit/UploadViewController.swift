@@ -63,7 +63,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         self.splitButton.isHidden = false
         print("did finish")
         
-        let data = UIImageJPEGRepresentation(receiptImage!, 1.0)
+        let data = UIImageJPEGRepresentation(receiptImage!, 0.1)
         
         var request = URLRequest(url: URL(string: "https://api.imgur.com/3/image")!)
         request.httpMethod = "POST"
