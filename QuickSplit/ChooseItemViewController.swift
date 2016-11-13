@@ -72,8 +72,9 @@ class ChooseItemViewController: UIViewController {
             let xscaled = Double(x)/9
             let widthScaled = Double(width)/9
             let heightScaled = Double(height)/9
-            
-            let frame = CGRect(x: xscaled, y: yscaled, width: widthScaled, height: heightScaled)
+            let yoffset = yscaled + 93
+            let xoffset = xscaled + 19
+            let frame = CGRect(x: xoffset, y: yoffset, width: widthScaled, height: heightScaled)
             
             let dlb = DeepLinkButton(frame: frame, price: Double(price));
             dlbarr.append(dlb)
