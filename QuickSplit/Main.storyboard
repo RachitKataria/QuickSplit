@@ -347,9 +347,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5pc-34-LlP">
-                                <rect key="frame" x="88" y="110.5" width="200" height="45"/>
+                                <rect key="frame" x="50.5" y="110.5" width="275" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="HIn-Y6-qqj"/>
+                                    <constraint firstAttribute="width" constant="275" id="HIn-Y6-qqj"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="eci-4T-ZP7"/>
                                     <constraint firstAttribute="height" constant="45" id="sfG-nm-9rc"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="ww7-BG-4k1"/>
@@ -357,25 +357,25 @@
                                 <state key="normal" backgroundImage="Rectangle 11"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qlz-w8-lXP">
-                                <rect key="frame" x="87.5" y="383.5" width="200" height="45"/>
+                                <rect key="frame" x="50" y="383.5" width="275" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="4OQ-EP-RI9"/>
-                                    <constraint firstAttribute="width" constant="200" id="sD6-He-6hd"/>
+                                    <constraint firstAttribute="width" constant="275" id="sD6-He-6hd"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="Rectangle 11"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WZ2-cN-H6k">
-                                <rect key="frame" x="87.5" y="292.5" width="200" height="45"/>
+                                <rect key="frame" x="50" y="292.5" width="275" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="GZ0-Tx-1iE"/>
-                                    <constraint firstAttribute="width" constant="200" id="Lpo-po-UY8"/>
+                                    <constraint firstAttribute="width" constant="275" id="Lpo-po-UY8"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="Rectangle 11"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HId-DA-7Xq">
-                                <rect key="frame" x="87" y="201.5" width="200" height="45"/>
+                                <rect key="frame" x="49.5" y="201.5" width="275" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="3bN-wz-y4u"/>
+                                    <constraint firstAttribute="width" constant="275" id="3bN-wz-y4u"/>
                                     <constraint firstAttribute="height" constant="45" id="BCM-AT-Dav"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="Rectangle 11"/>
