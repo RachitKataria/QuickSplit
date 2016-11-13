@@ -156,7 +156,6 @@
                                 <connections>
                                     <action selector="clickedChargeButton:" destination="pgv-jN-LOR" eventType="touchUpInside" id="WK3-Sa-8EH"/>
                                     <action selector="doneButtonClicked:" destination="pgv-jN-LOR" eventType="touchUpInside" id="QL0-ub-o0o"/>
-                                    <segue destination="yXz-Oi-Hqn" kind="show" identifier="segueToChooseItemView" id="XeN-5b-CHo"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eKy-LJ-bdt">
@@ -220,11 +219,12 @@
                     <connections>
                         <outlet property="chooseUsersLabel" destination="9QD-pj-2xr" id="m9f-6b-8PK"/>
                         <outlet property="usernameTableView" destination="eKy-LJ-bdt" id="bMz-WH-jUM"/>
+                        <segue destination="yXz-Oi-Hqn" kind="presentation" identifier="segueToChooseItemView" id="6Zf-b6-y9Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9hh-Dc-GrN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="364" y="94.902548725637189"/>
+            <point key="canvasLocation" x="297" y="95"/>
         </scene>
         <!--Choose Item View Controller-->
         <scene sceneID="tdn-UZ-kxI">
@@ -360,6 +360,6 @@
         <image name="Snap your receipt, split the bill" width="597" height="42"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Gc0-jT-Rci"/>
+        <segue reference="DMJ-1L-qrT"/>
     </inferredMetricsTieBreakers>
 </document>

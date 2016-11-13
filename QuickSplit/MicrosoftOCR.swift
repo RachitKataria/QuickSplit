@@ -49,10 +49,10 @@ struct MicrosoftOCR {
             }
             
             if let responseDict = try? JSONSerialization.jsonObject(with: data, options: []) as! [String:Any] {
-                
+                print(responseDict)
                 let language = responseDict["language"] as! String
-                let textAngle = responseDict["textAngle"] as! Int
-                let orientation = responseDict["orientation"] as! String
+//                let textAngle = responseDict["textAngle"] as! Int
+//                let orientation = responseDict["orientation"] as! String
                 var regions = responseDict["regions"] as! [[String:Any]]
                 
                 // defines bounding box normalization from string to {left, top, width, height}
@@ -105,8 +105,8 @@ struct MicrosoftOCR {
                 
                 let result: [String:Any] = [
                     "language": language,
-                    "textAngle": textAngle,
-                    "orientation": orientation,
+//                    "textAngle": textAngle,
+//                    "orientation": orientation,
                     "regions": regions
                 ]
                 

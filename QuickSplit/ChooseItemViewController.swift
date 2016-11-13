@@ -116,16 +116,29 @@ class ChooseItemViewController: UIViewController {
             button.reset()
         }
         
-       performSegue(withIdentifier: "doneButtonToUsernameVC", sender: nil)
     }
     
     func readReceipt(url: String) -> Void {
         MicrosoftOCR.loadAndParse(imageURL: receiptURL , completion: createOverlayButtons)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print(self.usernames)
+        print(self.usernameToButtonMap)
+        
         if(segue.identifier == "doneButtonToUsernameVC") {
             let a = segue.destination as! ChooseUsernameViewController
             a.usernameToButtonMap = self.usernameToButtonMap
+            a.usernames = self.usernames
+            a.receiptImage = self.image!
+            a.imageURL = self.receiptURL
+        }
+        else if(segue.identifier == "backButtonToUsernameVC") {
+            print("Getting in now")
+            let a = segue.destination as! ChooseUsernameViewController
+            a.usernameToButtonMap = self.usernameToButtonMap
+            a.usernames = self.usernames
+            a.receiptImage = self.image!
+            a.imageURL = self.receiptURL
         }
     }
 }

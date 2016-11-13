@@ -26,6 +26,7 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var usernameTableView: UITableView!
     
     override func viewDidLoad() {
+        print("entered view did load")
         super.viewDidLoad()
         
         usernameTableView.delegate = self
@@ -33,7 +34,6 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
         // Do any additional setup after loading the view.
         
         self.usernameTableView.reloadData()
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -104,6 +104,7 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
             csvc.image = self.receiptImage!
             csvc.receiptURL = self.imageURL!
             csvc.username = usernames[self.usernameTableView.indexPathForSelectedRow!.row]
+            csvc.usernames = self.usernames
         }
         else if(segue.identifier == "lol") {
             let a = segue.destination as! Checkout2ViewController
