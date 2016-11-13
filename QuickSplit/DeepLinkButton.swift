@@ -10,8 +10,9 @@ import UIKit
 
 class DeepLinkButton: UIButton {
 
-    var price: Double;
-    var counter:Int;
+    var price: Double
+    var counter:Int
+    var selected: Bool
 
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -23,6 +24,8 @@ class DeepLinkButton: UIButton {
         // set myValue before super.init is called
         self.price = price
         self.counter = 0
+        self.selected = false
+        alpha = 0.3
         super.init(frame: frame)
     }
     
@@ -30,8 +33,18 @@ class DeepLinkButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func incrementCounter() {
-        counter += 1
+    
+    func checkSelected() {
+        if(self.selected) {
+            self.selected = false
+            counter -= 1
+            backgroundColor = UIColor.gray
+        }
+        else {
+            self.selected = true
+            counter += 1
+            backgroundColor = UIColor.green
+        }
     }
     
     func getCount() -> Int {
@@ -42,5 +55,8 @@ class DeepLinkButton: UIButton {
         return price
     }
     
-    
+    func reset() {
+        self.selected = false
+        backgroundColor = UIColor.gray
+    }
 }
