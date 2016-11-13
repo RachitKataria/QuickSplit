@@ -27,7 +27,6 @@ struct MicrosoftOCR {
         
         // set up & run request task
         URLSession.shared.dataTask(with: request as URLRequest) { (data, response, error) in
-            print("YO")
             // check for fundamental networking error
             guard let data = data, error == nil else {
                 print("error=\(error)")

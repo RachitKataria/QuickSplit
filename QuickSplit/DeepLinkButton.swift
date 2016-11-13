@@ -13,28 +13,21 @@ class DeepLinkButton: UIButton {
     var price: Double
     var counter:Int
     var selecteder = false
-
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        
-    }
     
     init(frame: CGRect, price: Double) {
         // set myValue before super.init is called
         self.price = price
         self.counter = 0
-        
         super.init(frame: frame)
-        alpha = 0.3
-
+        
+        self.backgroundColor = UIColor.gray
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
+        
     func checkSelected() {
         if(self.selecteder) {
             self.selecteder = false
@@ -61,6 +54,6 @@ class DeepLinkButton: UIButton {
         backgroundColor = UIColor.gray
     }
     func incrementCounter() {
-        
+        counter += 1
     }
  }
