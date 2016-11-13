@@ -9,7 +9,7 @@
 import UIKit
 
 class ChooseItemViewController: UIViewController {
-
+    
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var receiptURL: String = ""
@@ -40,12 +40,25 @@ class ChooseItemViewController: UIViewController {
             button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         }
         
+        // do shit to imageview
+        receiptImageView.layer.masksToBounds = false
+        receiptImageView.clipsToBounds = true
+        receiptImageView.layer.cornerRadius = 5
+        receiptImageView.layer.borderWidth = 2
+        receiptImageView.layer.borderColor = UIColor(red: 0.0, green:0.0, blue:0.0, alpha: 0.5).cgColor
+        
+//        receiptImageView.layer.shadowOpacity = 0.25
+//        receiptImageView.layer.shadowColor = UIColor.black.cgColor
+//        receiptImageView.layer.shadowOffset = CGSize(width: 0.0, height: 6.0)
+//        receiptImageView.layer.shadowRadius = 14
+//        receiptImageView.layer.shouldRasterize = true
+        
     }
-
+    
     func buttonAction(sender: OverlayButton!) {
         sender.checkSelected()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -54,44 +67,59 @@ class ChooseItemViewController: UIViewController {
     func createOverlayButtons(result: [[String:Any]]) {
         
         var dlbarr : [OverlayButton] = []
-        for a in result {
+        for item in result {
             
-            let boundaries = a["boundingBox"] as! [String:Any]
+            let boundaries = item["boundingBox"] as! [String : Any]
             let y = boundaries["top"] as! Int
             let x = boundaries["left"] as! Int
             let width = boundaries["width"] as! Int
             let height = boundaries["height"] as! Int
-            let price = a["price"] as! Double
+            let price = item["price"] as! Double
             
-            //Scale and offset
+            let offset_x: Double = 19.0
+            let offset_y: Double = 93.0
+            
+            // scale item
             let yscaled = Double(y) / ImgurUpload.mult
             let xscaled = Double(x) / ImgurUpload.mult
-            let widthScaled = Double(width) / ImgurUpload.mult
             let heightScaled = Double(height) / ImgurUpload.mult
-            let yoffset = yscaled + 93
-            let xoffset = xscaled + 19
+            let widthScaled = Double(width) / ImgurUpload.mult
+            
+            // get center of item
+            let x_center = xscaled + (widthScaled / 2)
+            let y_center = yscaled + (heightScaled / 2)
+            
+            // apply offset
+            let yoffset = yscaled + offset_y
+            let xoffset = xscaled + offset_x
             print("a button")
             print(yscaled)
             print(xscaled)
             print(widthScaled)
             print(heightScaled)
             
-            let frame = CGRect(x: xoffset, y: yoffset, width: widthScaled, height: heightScaled)
+            let oldFrame = CGRect(x: xoffset, y: yoffset, width: widthScaled, height: heightScaled)
+            let dlb = OverlayButton(frame: oldFrame, price: Double(price));
             
-            let dlb = OverlayButton(frame: frame, price: Double(price));
+            let newWidth = dlb.frame.width + 20
+            let newHeight = dlb.frame.height
+            let new_x = CGFloat(x_center - Double(newWidth / 2) + offset_x)
+            let new_y = CGFloat(y_center - Double(newHeight / 2) + offset_y)
+            dlb.frame = CGRect(x: new_x, y: new_y, width: newWidth, height: newHeight)
+            
             dlbarr.append(dlb)
             
             
         }
-    
+        
         buttons = dlbarr
-
+        
         DispatchQueue.main.async(){
             //code
             
             for buttony in self.buttons {
                 self.view.addSubview(buttony)
-                buttony.alpha = 0.4
+                buttony.reload()
                 buttony.addTarget(self, action: #selector(self.buttonAction), for: .touchUpInside)
             }
             
@@ -112,11 +140,12 @@ class ChooseItemViewController: UIViewController {
             }
         }
         
+        
         for button in buttons {
             button.reset()
         }
-        
     }
+    
     
     func readReceipt(url: String) -> Void {
         MicrosoftOCR.loadAndParse(imageURL: receiptURL , completion: createOverlayButtons)
@@ -140,5 +169,6 @@ class ChooseItemViewController: UIViewController {
             a.receiptImage = self.image!
             a.imageURL = self.receiptURL
         }
+        
     }
 }

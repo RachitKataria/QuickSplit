@@ -18,9 +18,28 @@ class OverlayButton: UIButton {
         // set myValue before super.init is called
         self.price = price
         self.counter = 0
+        
+        // init button
         super.init(frame: frame)
         
-        self.backgroundColor = UIColor.gray
+        // set title & customize
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        let priceString: String = formatter.string(from: price as NSNumber)!
+        self.setTitle(priceString, for: .normal)
+        self.sizeToFit()
+        
+        // padding
+        self.titleEdgeInsets.left = 10;
+        self.titleEdgeInsets.right = 10;
+        self.layer.cornerRadius = 5
+        self.backgroundColor = UIColor.black
+        self.alpha = 0.5
+    }
+    
+    func reload() {
+        self.isEnabled = false
+        self.isEnabled = true
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -32,12 +51,14 @@ class OverlayButton: UIButton {
         if(self.selecteder) {
             self.selecteder = false
             counter -= 1
-            backgroundColor = UIColor.gray
+            backgroundColor = UIColor.black
+            alpha = 0.5
         }
         else {
             self.selecteder = true
             counter += 1
-            backgroundColor = UIColor.green
+            backgroundColor = UIColor(red:0.25, green:0.85, blue:0.28, alpha:1.0)
+            alpha = 1.0
         }
     }
     
