@@ -48,8 +48,10 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-
+        activityIndicatorView.startAnimating()
+        uploadButton.isEnabled = false
         // Get the image captured by the UIImagePickerController
         let editedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
@@ -62,7 +64,6 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         dismiss(animated: true, completion: nil)
         self.splitButton.isHidden = false
         print("did finish")
-        
         let data = UIImageJPEGRepresentation(receiptImage!, 0.1)
         
         var request = URLRequest(url: URL(string: "https://api.imgur.com/3/image")!)
@@ -88,6 +89,8 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
                 let data1 = responseDictionary["data"] as! NSDictionary
                 let link = data1["link"] as! String
                 print(link)
+                activityIndicatorView.startAnimating()
+                uploadButton.isEnabled = true
                 self.imageURL = link
             } else
             {
