@@ -13,14 +13,17 @@ class ChooseItemViewController: UIViewController {
     var receiptURL: String = ""
     var usernames: [String] = []
     var image: UIImage?
+    var counter = 1
     
     @IBOutlet weak var receiptImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     
-    
     override func viewDidLoad() {
+        
         super.viewDidLoad()
 
+        receiptImageView.image = self.image
+        
         // Do any additional setup after loading the view.
     }
 
@@ -30,6 +33,7 @@ class ChooseItemViewController: UIViewController {
     }
     
     @IBAction func doneButtonClicked(_ sender: Any) {
+        counter += 1
     }
 
     /*
