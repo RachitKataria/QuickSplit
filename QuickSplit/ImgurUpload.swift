@@ -13,7 +13,7 @@ struct ImgurUpload {
     static let mult: Double = 1.0
     static let width: Double = 333.0
     static let height: Double = 444.0
-    static let quality: Double = 0.5
+    static let quality: Double = 1
     
     static func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
         
