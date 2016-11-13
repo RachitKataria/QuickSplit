@@ -71,6 +71,7 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
         
         self.present(alert, animated: true, completion: nil)
         
+        
     }
     
     
