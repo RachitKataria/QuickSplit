@@ -11,6 +11,7 @@
 		8AF4C6571DD7AAC60067961D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF4C6561DD7AAC60067961D /* User.swift */; };
 		8AF4C6931DD821890067961D /* Checkout2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF4C6921DD821890067961D /* Checkout2ViewController.swift */; };
 		BE21A4411DD7E12E000F2BC2 /* ChooseItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE21A4401DD7E12E000F2BC2 /* ChooseItemViewController.swift */; };
+		BE21A4431DD85CC3000F2BC2 /* UsernameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE21A4421DD85CC3000F2BC2 /* UsernameTableViewCell.swift */; };
 		BEB3482B1DD7983000BD9F6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB3482A1DD7983000BD9F6B /* AppDelegate.swift */; };
 		BEB3482D1DD7983000BD9F6B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB3482C1DD7983000BD9F6B /* ViewController.swift */; };
 		BEB348301DD7983000BD9F6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEB3482E1DD7983000BD9F6B /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 		8AF4C6561DD7AAC60067961D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8AF4C6921DD821890067961D /* Checkout2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkout2ViewController.swift; sourceTree = "<group>"; };
 		BE21A4401DD7E12E000F2BC2 /* ChooseItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseItemViewController.swift; sourceTree = "<group>"; };
+		BE21A4421DD85CC3000F2BC2 /* UsernameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsernameTableViewCell.swift; sourceTree = "<group>"; };
 		BEB348271DD7983000BD9F6B /* QuickSplit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickSplit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEB3482A1DD7983000BD9F6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEB3482C1DD7983000BD9F6B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 				BEB348361DD7983000BD9F6B /* Info.plist */,
 				BEB348331DD7983000BD9F6B /* LaunchScreen.storyboard */,
 				BEB3482E1DD7983000BD9F6B /* Main.storyboard */,
+				BE21A4421DD85CC3000F2BC2 /* UsernameTableViewCell.swift */,
 			);
 			path = QuickSplit;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				BEB3482D1DD7983000BD9F6B /* ViewController.swift in Sources */,
 				8AF4C6931DD821890067961D /* Checkout2ViewController.swift in Sources */,
 				BEDFEC251DD7AC8A002B0CA4 /* ChooseUsernameViewController.swift in Sources */,
+				BE21A4431DD85CC3000F2BC2 /* UsernameTableViewCell.swift in Sources */,
 				F222266B1DD82480006E598A /* Venmo.swift in Sources */,
 				8AF4C6571DD7AAC60067961D /* User.swift in Sources */,
 				BEB3482B1DD7983000BD9F6B /* AppDelegate.swift in Sources */,

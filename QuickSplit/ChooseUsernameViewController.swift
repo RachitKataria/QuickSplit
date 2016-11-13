@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ChooseUsernameViewController: UIViewController {
+class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var chooseUsersLabel: UILabel!
     
@@ -22,8 +22,16 @@ class ChooseUsernameViewController: UIViewController {
     var numUsernames:Int = 1;
     var usernames: [String] = []
     
+    weak var addAlertAction: UIAlertAction?
+    
+    @IBOutlet weak var usernameTableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        usernameTableView.delegate = self
+        usernameTableView.dataSource = self
         
         user2TextField.alpha = 0;
         user2TextField.isEnabled = false
@@ -43,20 +51,48 @@ class ChooseUsernameViewController: UIViewController {
     }
     
     @IBAction func addUserButtonClicked(_ sender: Any) {
-        if(numUsernames == 1) {
-            user2TextField.alpha = 1;
-            user2TextField.isEnabled = true
-        }
-        else if(numUsernames == 2) {
-            user3TextField.alpha = 1;
-            user3TextField.isEnabled = true
-        }
-        else if(numUsernames == 3) {
-            user4TextField.alpha = 1;
-            user4TextField.isEnabled = true
+//        if(numUsernames == 1) {
+//            user2TextField.alpha = 1;
+//            user2TextField.isEnabled = true
+//        }
+//        else if(numUsernames == 2) {
+//            user3TextField.alpha = 1;
+//            user3TextField.isEnabled = true
+//        }
+//        else if(numUsernames == 3) {
+//            user4TextField.alpha = 1;
+//            user4TextField.isEnabled = true
+//        }
+//        
+//        numUsernames += 1
+        
+        let alert = UIAlertController(title: "Add Venmo Username", message: nil, preferredStyle: .alert)
+        
+        alert.addTextField { (textField : UITextField!) -> Void in
+            NotificationCenter.default.addObserver(self, selector: #selector(self.handleTextFieldTextDidChangeNotification), name: NSNotification.Name.UITextFieldTextDidChange, object: textField)
+            
+            textField.placeholder = "John Doe"
         }
         
-        numUsernames += 1
+        
+        addAlertAction = UIAlertAction(title: "Add", style: .default) { (action) in
+            let firstTextField = alert.textFields![0] as UITextField
+            let text = firstTextField.text
+            self.usernames.append(text!)
+            self.usernameTableView.reloadData()
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default) { (action) in
+            return
+        }
+        
+        alert.addAction(addAlertAction!)
+        addAlertAction?.isEnabled = false
+        alert.addAction(cancelAction)
+        
+        self.present(alert, animated: true, completion: nil)
+
+
     }
     
     @IBAction func doneButtonClicked(_ sender: Any) {
@@ -85,4 +121,20 @@ class ChooseUsernameViewController: UIViewController {
         }
     }
 
+    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return usernames.count
+    }
+
+    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UsernameCell", for: indexPath) as! UsernameTableViewCell
+        cell.usernameLabel.text = usernames[indexPath.row]
+        
+        return cell
+    }
+    
+    func handleTextFieldTextDidChangeNotification(notification: NSNotification) {
+        let textField = notification.object as! UITextField
+        addAlertAction!.isEnabled = (textField.text != "")
+    }
+    
 }

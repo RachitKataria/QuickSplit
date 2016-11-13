@@ -126,7 +126,7 @@ class ChooseItemViewController: UIViewController {
             var price: Double = 0
             for username in usernameToButtonMap.keys {
                 for button in usernameToButtonMap[username]! {
-                    price += button.getPrice() / Double(button.getCount() + 1)
+                    price += button.getPrice() / Double(button.getCount())
                 }
                 
                 let user = User(usrname: username, price: price)
