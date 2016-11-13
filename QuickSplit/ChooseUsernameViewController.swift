@@ -70,8 +70,6 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
         alert.addAction(cancelAction)
         
         self.present(alert, animated: true, completion: nil)
-        
-        
     }
     
     
