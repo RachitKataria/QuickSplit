@@ -13,6 +13,7 @@ struct ImgurUpload {
     static let mult: Double = 1.0
     static let width: Double = 333.0
     static let height: Double = 444.0
+    static let quality: Double = 0.5
     
     static func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
         
@@ -29,7 +30,7 @@ struct ImgurUpload {
     static func upload(image: UIImage, completion: @escaping (_ result: String) -> Void = {_ in }) {
         // compress image for fast upload
         let resizedImage = resizeImage(image: image, newWidth: CGFloat(width))
-        let data = UIImageJPEGRepresentation(resizedImage, 0.2) // 20% out of 100% quality LOL
+        let data = UIImageJPEGRepresentation(resizedImage, CGFloat(quality))
         
         // imgur key
         let clientID = "e452e17ad759f66"
