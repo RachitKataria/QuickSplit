@@ -47,11 +47,7 @@ class ChooseItemViewController: UIViewController {
         receiptImageView.layer.borderWidth = 2
         receiptImageView.layer.borderColor = UIColor(red: 0.0, green:0.0, blue:0.0, alpha: 0.5).cgColor
         
-//        receiptImageView.layer.shadowOpacity = 0.25
-//        receiptImageView.layer.shadowColor = UIColor.black.cgColor
-//        receiptImageView.layer.shadowOffset = CGSize(width: 0.0, height: 6.0)
-//        receiptImageView.layer.shadowRadius = 14
-//        receiptImageView.layer.shouldRasterize = true
+        receiptImageView.layer.shadowPath = UIBezierPath(rect: receiptImageView.bounds).cgPath
         
     }
     
@@ -76,14 +72,14 @@ class ChooseItemViewController: UIViewController {
             let height = boundaries["height"] as! Int
             let price = item["price"] as! Double
             
-            let offset_x: Double = 19.0
-            let offset_y: Double = 93.0
+            let offset_x = receiptImageView.frame.origin.x
+            let offset_y = receiptImageView.frame.origin.y
             
             // scale item
-            let yscaled = Double(y) / ImgurUpload.mult
-            let xscaled = Double(x) / ImgurUpload.mult
-            let heightScaled = Double(height) / ImgurUpload.mult
-            let widthScaled = Double(width) / ImgurUpload.mult
+            let yscaled = CGFloat(Double(y) / ImgurUpload.mult)
+            let xscaled = CGFloat(Double(x) / ImgurUpload.mult)
+            let heightScaled = CGFloat(Double(height) / ImgurUpload.mult)
+            let widthScaled = CGFloat(Double(width) / ImgurUpload.mult)
             
             // get center of item
             let x_center = xscaled + (widthScaled / 2)
@@ -103,8 +99,8 @@ class ChooseItemViewController: UIViewController {
             
             let newWidth = dlb.frame.width + 20
             let newHeight = dlb.frame.height
-            let new_x = CGFloat(x_center - Double(newWidth / 2) + offset_x)
-            let new_y = CGFloat(y_center - Double(newHeight / 2) + offset_y)
+            let new_x = CGFloat(x_center - (newWidth / 2) + offset_x)
+            let new_y = CGFloat(y_center - (newHeight / 2) + offset_y)
             dlb.frame = CGRect(x: new_x, y: new_y, width: newWidth, height: newHeight)
             
             dlbarr.append(dlb)
