@@ -59,6 +59,9 @@ class ChooseUsernameViewController: UIViewController {
     }
     
     @IBAction func doneButtonClicked(_ sender: Any) {
+        var textfields: [UITextField] = [user1TextField, user2TextField, user3TextField, user4TextField]
+        
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

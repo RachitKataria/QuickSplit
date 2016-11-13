@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8AF4C6551DD7AA970067961D /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF4C6541DD7AA970067961D /* UploadViewController.swift */; };
 		8AF4C6571DD7AAC60067961D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF4C6561DD7AAC60067961D /* User.swift */; };
+		BE21A4411DD7E12E000F2BC2 /* ChooseItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE21A4401DD7E12E000F2BC2 /* ChooseItemViewController.swift */; };
 		BEB3482B1DD7983000BD9F6B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB3482A1DD7983000BD9F6B /* AppDelegate.swift */; };
 		BEB3482D1DD7983000BD9F6B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEB3482C1DD7983000BD9F6B /* ViewController.swift */; };
 		BEB348301DD7983000BD9F6B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEB3482E1DD7983000BD9F6B /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		8AF4C6541DD7AA970067961D /* UploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		8AF4C6561DD7AAC60067961D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		BE21A4401DD7E12E000F2BC2 /* ChooseItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseItemViewController.swift; sourceTree = "<group>"; };
 		BEB348271DD7983000BD9F6B /* QuickSplit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickSplit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEB3482A1DD7983000BD9F6B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BEB3482C1DD7983000BD9F6B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 				BEDFEC261DD7D2C8002B0CA4 /* Imgur.swift */,
 				8AF4C6561DD7AAC60067961D /* User.swift */,
 				BEB3482E1DD7983000BD9F6B /* Main.storyboard */,
+				BE21A4401DD7E12E000F2BC2 /* ChooseItemViewController.swift */,
 				BEB348311DD7983000BD9F6B /* Assets.xcassets */,
 				BEB348331DD7983000BD9F6B /* LaunchScreen.storyboard */,
 				BEB348361DD7983000BD9F6B /* Info.plist */,
@@ -152,6 +155,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE21A4411DD7E12E000F2BC2 /* ChooseItemViewController.swift in Sources */,
 				BEDFEC231DD7995C002B0CA4 /* DeepLinkButton.swift in Sources */,
 				8AF4C6551DD7AA970067961D /* UploadViewController.swift in Sources */,
 				BEB3482D1DD7983000BD9F6B /* ViewController.swift in Sources */,
