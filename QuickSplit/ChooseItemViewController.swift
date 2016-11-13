@@ -10,6 +10,8 @@ import UIKit
 
 class ChooseItemViewController: UIViewController {
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     var receiptURL: String = ""
     var usernames: [String] = []
     var image: UIImage?
@@ -25,7 +27,8 @@ class ChooseItemViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-
+        activityIndicator.startAnimating()
+        
         receiptImageView.image = self.image
         //do call with the url
         
@@ -42,6 +45,8 @@ class ChooseItemViewController: UIViewController {
         for button in buttons {
             button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         }
+        
+
     }
 
     func buttonAction(sender: OverlayButton!) {
@@ -90,13 +95,19 @@ class ChooseItemViewController: UIViewController {
 
         DispatchQueue.main.async(){
             //code
-
+            
             for buttony in self.buttons {
                 self.view.addSubview(buttony)
                 buttony.alpha = 0.4
                 buttony.addTarget(self, action: #selector(self.buttonAction), for: .touchUpInside)
             }
+            
+            
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.hidesWhenStopped = true
+            
         }
+        
         
     }
     

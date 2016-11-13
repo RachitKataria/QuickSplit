@@ -14,7 +14,6 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var uploadFromCameraRoll: UIButton!
     @IBOutlet weak var splitButton: UIButton!
     @IBOutlet weak var uploadButton: UIButton!
-    @IBOutlet weak var imageReceipt: UIImageView!
     var imageURL : String?
     var receiptImage : UIImage?
     override func viewDidLoad() {
@@ -63,9 +62,6 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         
         // Do something with the images (based on your use case)
         // Dismiss UIImagePickerController to go back to your original view controller
-        imageReceipt.image = editedImage
-        imageReceipt.isHidden = false
-        self.view.addSubview(imageReceipt)
         self.receiptImage = editedImage
         dismiss(animated: true, completion: nil)
         self.splitButton.isHidden = false
