@@ -28,6 +28,19 @@ class Checkout2ViewController: UIViewController {
             self.arrayButtons.append(self.userCheckoutButton3)
             self.arrayButtons.append(self.userCheckoutButton4)
             
+            let maxSize = self.arrayUsers.count
+            
+            for i in 0...self.arrayUsers.count {
+                self.arrayButtons[i].setTitle("Send a request to " + self.arrayUsers[i].username, for: .normal)
+                
+            }
+            
+            if(self.arrayButtons.count > maxSize) {
+                for i in maxSize...self.arrayButtons.count - 1 {
+                    self.arrayButtons[i].isHidden = true
+                }
+            }
+            
             for i in 0...self.arrayButtons.capacity - 1 {
                 self.arrayButtons[i].tag = i + 1
             }
