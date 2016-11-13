@@ -31,8 +31,10 @@ class Checkout2ViewController: UIViewController {
             let maxSize = self.arrayUsers.count
             
             for i in 0...self.arrayUsers.count - 1 {
+                self.arrayButtons[i].titleLabel!.font = UIFont (name: "HelveticaNeue-Thin", size: 17)
+                self.arrayButtons[i].setTitleColor(UIColor.white, for: .normal)
                 self.arrayButtons[i].setTitle("Send a request to " + self.arrayUsers[i].username, for: .normal)
-                
+
             }
             
             if(self.arrayButtons.count > maxSize) {

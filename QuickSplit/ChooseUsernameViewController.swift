@@ -11,6 +11,7 @@ import UIKit
 class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var chooseUsersLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var receiptImage : UIImage?
     var imageURL : String?
@@ -28,7 +29,25 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         print("entered view did load")
         super.viewDidLoad()
+        self.activityIndicator.isHidden = true
         
+        
+        DispatchQueue.main.async {
+            //CHANGE LATER
+            self.activityIndicator.isHidden = true
+            self.activityIndicator.startAnimating()
+        }
+
+        // upload
+        ImgurUpload.upload(image: receiptImage!, completion: {(link: String) -> Void in
+            self.imageURL = link
+            DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
+                self.activityIndicator.isHidden = true
+            }
+        })
+        
+        // table view delegate data source (init)
         usernameTableView.delegate = self
         usernameTableView.dataSource = self
         // Do any additional setup after loading the view.
