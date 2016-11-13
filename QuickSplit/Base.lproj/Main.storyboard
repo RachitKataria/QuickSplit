@@ -214,10 +214,10 @@
             </objects>
             <point key="canvasLocation" x="1285.5999999999999" y="94.902548725637189"/>
         </scene>
-        <!--Checkout View Controller-->
+        <!--Checkout2 View Controller-->
         <scene sceneID="Bge-kZ-9Sy">
             <objects>
-                <viewController id="uvH-rh-ScO" customClass="CheckoutViewController" customModule="QuickSplit" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="uvH-rh-ScO" customClass="Checkout2ViewController" customModule="QuickSplit" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Axj-Cc-457"/>
                         <viewControllerLayoutGuide type="bottom" id="02j-83-Na2"/>

@@ -155,4 +155,11 @@ class ChooseItemViewController: UIViewController {
         let mOCR = MicrosoftOCR()
         mOCR.loadAndParse(imageURL: receiptURL , completion: createDeepLinkButtons)
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "lol") {
+            let a = segue.destination as! Checkout2ViewController
+            a.arrayUsers = users
+        }
+        
+    }
 }

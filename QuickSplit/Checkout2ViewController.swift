@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CheckoutViewController: UIViewController {
+class Checkout2ViewController: UIViewController {
     
     @IBOutlet weak var userCheckoutButton1: UIButton!
     @IBOutlet weak var userCheckoutButton2: UIButton!
