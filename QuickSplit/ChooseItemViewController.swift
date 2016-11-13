@@ -15,11 +15,10 @@ class ChooseItemViewController: UIViewController {
     var receiptURL: String = ""
     var usernames: [String] = []
     var image: UIImage?
-    var counter = 0
-    var users: [User] = []
     
     var usernameToButtonMap: [String:[OverlayButton]] = [:]
     var buttons : [OverlayButton] = []
+    var username: String?
     
     @IBOutlet weak var receiptImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -32,21 +31,15 @@ class ChooseItemViewController: UIViewController {
         receiptImageView.image = self.image
         //do call with the url
         
-        usernameLabel.text = usernames[counter]
+        usernameLabel.text = username!
         // Do any additional setup after loading the view.
         
         readReceipt(url: receiptURL)
-        
-        for username in usernames {
-            usernameToButtonMap[username] = []
-        }
-        
         
         for button in buttons {
             button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         }
         
-
     }
 
     func buttonAction(sender: OverlayButton!) {
@@ -115,61 +108,24 @@ class ChooseItemViewController: UIViewController {
         
         for button in buttons {
             if(button.selecteder) {
-                usernameToButtonMap[usernames[counter]]!.append(button)
+                usernameToButtonMap[username!]!.append(button)
             }
         }
         
-        counter += 1
-        print(counter, " ", usernames.count)
-        if(counter == usernames.count) {
-            // Logic to determine price per user
-            var price: Double = 0
-            for username in usernameToButtonMap.keys {
-                for button in usernameToButtonMap[username]! {
-                    price += button.getPrice() / Double(button.getCount())
-                }
-                
-                let user = User(usrname: username, price: price)
-                users.append(user)
-                
-                price = 0
-                
-                
-            }
-            
-            performSegue(withIdentifier: "lol", sender: nil)
-            
-            //viewController.arrayUsers = users
-            //present(viewController, animated: true, completion: nil)
-
+        for button in buttons {
+            button.reset()
         }
-        else {
-            for button in buttons {
-                button.reset()
-            }
-            
-            usernameLabel.text = usernames[counter]
-        }
+        
+       performSegue(withIdentifier: "doneButtonToUsernameVC", sender: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     func readReceipt(url: String) -> Void {
         MicrosoftOCR.loadAndParse(imageURL: receiptURL , completion: createOverlayButtons)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "lol") {
-            let a = segue.destination as! Checkout2ViewController
-            a.arrayUsers = users
+        if(segue.identifier == "doneButtonToUsernameVC") {
+            let a = segue.destination as! ChooseUsernameViewController
+            a.usernameToButtonMap = self.usernameToButtonMap
         }
-        
     }
 }

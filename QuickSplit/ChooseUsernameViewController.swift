@@ -9,13 +9,8 @@
 import UIKit
 
 class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    @IBOutlet weak var chooseUsersLabel: UILabel!
     
-    @IBOutlet weak var user1TextField: UITextField!
-    @IBOutlet weak var user2TextField: UITextField!
-    @IBOutlet weak var user3TextField: UITextField!
-    @IBOutlet weak var user4TextField: UITextField!
+    @IBOutlet weak var chooseUsersLabel: UILabel!
     
     var receiptImage : UIImage?
     var imageURL : String?
@@ -23,51 +18,30 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
     var usernames: [String] = []
     
     var usernameToButtonMap: [String:[OverlayButton]] = [:]
+    var users: [User] = []
     
     
     weak var addAlertAction: UIAlertAction?
     
     @IBOutlet weak var usernameTableView: UITableView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         usernameTableView.delegate = self
         usernameTableView.dataSource = self
-        
-        user2TextField.alpha = 0;
-        user2TextField.isEnabled = false
-        
-        user3TextField.alpha = 0;
-        user3TextField.isEnabled = false
-        
-        user4TextField.alpha = 0;
-        user4TextField.isEnabled = false
         // Do any additional setup after loading the view.
-
+        
+        self.usernameTableView.reloadData()
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     @IBAction func addUserButtonClicked(_ sender: Any) {
-//        if(numUsernames == 1) {
-//            user2TextField.alpha = 1;
-//            user2TextField.isEnabled = true
-//        }
-//        else if(numUsernames == 2) {
-//            user3TextField.alpha = 1;
-//            user3TextField.isEnabled = true
-//        }
-//        else if(numUsernames == 3) {
-//            user4TextField.alpha = 1;
-//            user4TextField.isEnabled = true
-//        }
-//        
-//        numUsernames += 1
         
         let alert = UIAlertController(title: "Add Venmo Username", message: nil, preferredStyle: .alert)
         
@@ -82,6 +56,8 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
             let firstTextField = alert.textFields![0] as UITextField
             let text = firstTextField.text
             self.usernames.append(text!)
+            
+            self.usernameToButtonMap[text!] = []
             self.usernameTableView.reloadData()
         }
         
@@ -94,10 +70,25 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
         alert.addAction(cancelAction)
         
         self.present(alert, animated: true, completion: nil)
-
+        
     }
     
-    @IBAction func doneButtonClicked(_ sender: Any) {
+    
+    @IBAction func clickedChargeButton(_ sender: Any) {
+        
+        var price: Double = 0
+        for username in usernameToButtonMap.keys {
+            for button in usernameToButtonMap[username]! {
+                price += button.getPrice() / Double(button.getCount())
+            }
+            
+            let user = User(usrname: username, price: price)
+            users.append(user)
+            
+            price = 0
+        }
+        
+        performSegue(withIdentifier: "lol", sender: nil)
         
     }
     
@@ -112,14 +103,18 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
             let csvc = segue.destination as! ChooseItemViewController
             csvc.image = self.receiptImage!
             csvc.receiptURL = self.imageURL!
-            csvc.usernames = self.usernames
+            csvc.username = usernames[self.usernameTableView.indexPathForSelectedRow!.row]
+        }
+        else if(segue.identifier == "lol") {
+            let a = segue.destination as! Checkout2ViewController
+            a.arrayUsers = users
         }
     }
-
+    
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return usernames.count
     }
-
+    
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UsernameCell", for: indexPath) as! UsernameTableViewCell
         cell.usernameLabel.text = usernames[indexPath.row]
@@ -133,8 +128,8 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //
+        performSegue(withIdentifier: "segueToChooseItemView", sender: nil)
     }
-
+    
     
 }
