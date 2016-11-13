@@ -119,7 +119,8 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UsernameCell", for: indexPath) as! UsernameTableViewCell
         cell.usernameLabel.text = usernames[indexPath.row]
-        
+        cell.backgroundColor = UIColor(colorLiteralRed: 1.0, green: 1.0, blue: 1.0, alpha: 0)
+        cell.usernameLabel.textColor = UIColor.white
         return cell
     }
     

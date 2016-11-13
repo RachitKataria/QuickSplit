@@ -186,10 +186,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdy-th-6F5">
-                                                    <rect key="frame" x="263" y="0.0" width="39" height="43"/>
+                                                    <rect key="frame" x="282" y="10" width="20" height="25"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="43" id="LHJ-do-Rjo"/>
-                                                        <constraint firstAttribute="width" constant="39" id="bhf-jQ-aJb"/>
+                                                        <constraint firstAttribute="height" constant="25" id="LHJ-do-Rjo"/>
+                                                        <constraint firstAttribute="width" constant="20" id="bhf-jQ-aJb"/>
                                                     </constraints>
                                                     <state key="normal" image="disclosure-indicator"/>
                                                     <connections>
@@ -198,7 +198,7 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="pdy-th-6F5" firstAttribute="top" secondItem="bU6-aj-rN2" secondAttribute="top" id="8PZ-fn-3eb"/>
+                                                <constraint firstItem="pdy-th-6F5" firstAttribute="top" secondItem="bU6-aj-rN2" secondAttribute="top" constant="10" id="8PZ-fn-3eb"/>
                                                 <constraint firstItem="EcI-QP-MSd" firstAttribute="leading" secondItem="bU6-aj-rN2" secondAttribute="leadingMargin" id="Bid-dr-wom"/>
                                                 <constraint firstAttribute="trailing" secondItem="pdy-th-6F5" secondAttribute="trailing" constant="8" id="YbZ-gt-hTd"/>
                                                 <constraint firstItem="EcI-QP-MSd" firstAttribute="top" secondItem="bU6-aj-rN2" secondAttribute="topMargin" id="fLH-sS-n8D"/>
