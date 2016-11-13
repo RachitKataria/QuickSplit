@@ -137,13 +137,13 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="Gvt-R4-OGg">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bg-Fm-Iud">
-                                <rect key="frame" x="136" y="411" width="102" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bg-Fm-Iud">
+                                <rect key="frame" x="156" y="497" width="60" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="102" id="G0P-vQ-7Io"/>
-                                    <constraint firstAttribute="height" constant="30" id="YlY-gC-nLq"/>
+                                    <constraint firstAttribute="width" constant="60" id="G0P-vQ-7Io"/>
+                                    <constraint firstAttribute="height" constant="45" id="YlY-gC-nLq"/>
                                 </constraints>
-                                <state key="normal" title="Add Username"/>
+                                <state key="normal" image="Group (2)"/>
                                 <connections>
                                     <action selector="addUserButtonClicked:" destination="pgv-jN-LOR" eventType="touchUpInside" id="3EG-Lt-EeG"/>
                                 </connections>
@@ -222,13 +222,12 @@
                             <constraint firstItem="sgS-k4-nY5" firstAttribute="top" secondItem="xPQ-xC-miS" secondAttribute="bottom" constant="30" id="7tO-uO-meX"/>
                             <constraint firstItem="sgS-k4-nY5" firstAttribute="top" secondItem="Gvt-R4-OGg" secondAttribute="bottom" id="Dwj-dK-eF8"/>
                             <constraint firstItem="Gvt-R4-OGg" firstAttribute="leading" secondItem="xNu-na-j34" secondAttribute="leading" id="KzF-BM-abJ"/>
-                            <constraint firstItem="7bg-Fm-Iud" firstAttribute="centerX" secondItem="xNu-na-j34" secondAttribute="centerX" id="Raq-J3-wf9"/>
-                            <constraint firstItem="7bg-Fm-Iud" firstAttribute="centerX" secondItem="xNu-na-j34" secondAttribute="centerX" id="dU9-nH-vw7"/>
+                            <constraint firstItem="7bg-Fm-Iud" firstAttribute="leading" secondItem="xNu-na-j34" secondAttribute="leadingMargin" constant="140" id="Nyg-hi-SCL"/>
+                            <constraint firstItem="xPQ-xC-miS" firstAttribute="centerX" secondItem="xNu-na-j34" secondAttribute="centerX" id="UDz-Qj-0hA"/>
                             <constraint firstItem="Gvt-R4-OGg" firstAttribute="top" secondItem="xNu-na-j34" secondAttribute="top" id="ekz-xh-CJ6"/>
                             <constraint firstItem="xPQ-xC-miS" firstAttribute="top" secondItem="7bg-Fm-Iud" secondAttribute="bottom" constant="20" id="g7h-7s-uoL"/>
                             <constraint firstItem="7bg-Fm-Iud" firstAttribute="top" secondItem="eKy-LJ-bdt" secondAttribute="bottom" constant="40" id="nMv-2e-4lD"/>
                             <constraint firstAttribute="trailing" secondItem="Gvt-R4-OGg" secondAttribute="trailing" id="tZ5-Vl-rdW"/>
-                            <constraint firstItem="xPQ-xC-miS" firstAttribute="centerX" secondItem="xNu-na-j34" secondAttribute="centerX" id="zh9-fd-zZE"/>
                         </constraints>
                     </view>
                     <connections>
@@ -399,6 +398,7 @@
         <image name="CameraButton" width="192" height="192"/>
         <image name="Charge" width="471" height="225"/>
         <image name="Group" width="1002" height="1335"/>
+        <image name="Group (2)" width="180" height="138"/>
         <image name="SPLIT" width="279" height="108"/>
         <image name="Snap your receipt, split the bill" width="597" height="42"/>
         <image name="disclosure-indicator" width="48" height="78"/>

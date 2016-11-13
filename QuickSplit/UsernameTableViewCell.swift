@@ -16,6 +16,7 @@ class UsernameTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        alpha = 0.3
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
