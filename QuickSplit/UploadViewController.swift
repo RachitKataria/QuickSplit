@@ -10,6 +10,7 @@ import UIKit
 
 class UploadViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     @IBOutlet weak var uploadFromCameraRoll: UIButton!
     @IBOutlet weak var splitButton: UIButton!
     @IBOutlet weak var uploadButton: UIButton!
@@ -18,6 +19,8 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     var receiptImage : UIImage?
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.activityIndicatorView.isHidden = true
+
 //        splitButton.isHidden = true
         // Do any additional setup after loading the view.
     }
@@ -50,8 +53,11 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        activityIndicatorView.startAnimating()
-        uploadButton.isEnabled = false
+        DispatchQueue.main.async {
+            self.activityIndicatorView.isHidden = false
+            self.activityIndicatorView.startAnimating()
+            self.splitButton.isEnabled = false
+        }
         // Get the image captured by the UIImagePickerController
         let editedImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
@@ -89,8 +95,11 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
                 let data1 = responseDictionary["data"] as! NSDictionary
                 let link = data1["link"] as! String
                 print(link)
-                activityIndicatorView.startAnimating()
-                uploadButton.isEnabled = true
+                DispatchQueue.main.async {
+                    self.activityIndicatorView.stopAnimating()
+                    self.activityIndicatorView.isHidden = true
+                    self.splitButton.isEnabled = true
+                }
                 self.imageURL = link
             } else
             {

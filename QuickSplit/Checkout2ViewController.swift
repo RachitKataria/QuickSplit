@@ -30,7 +30,7 @@ class Checkout2ViewController: UIViewController {
             
             let maxSize = self.arrayUsers.count
             
-            for i in 0...self.arrayUsers.count {
+            for i in 0...self.arrayUsers.count - 1 {
                 self.arrayButtons[i].setTitle("Send a request to " + self.arrayUsers[i].username, for: .normal)
                 
             }
