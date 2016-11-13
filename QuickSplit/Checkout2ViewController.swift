@@ -48,9 +48,6 @@ class Checkout2ViewController: UIViewController {
             for i in 0...self.arrayButtons.capacity - 1 {
                 self.arrayButtons[i].addTarget(self,action:#selector(self.buttonClicked),for:.touchUpInside)
             }
-            
-            //        splitButton.isHidden = true
-            // Do any additional setup after loading the view.
         }
         
     }
