@@ -11,7 +11,7 @@
 import UIKit
 
 struct MicrosoftOCR {
-    func loadMicrosoftComputerVisionOCRData(imageURL:String, completion: @escaping (_ result: [String:Any]) -> Void = {_ in }) {
+    static func loadMicrosoftComputerVisionOCRData(imageURL:String, completion: @escaping (_ result: [String:Any]) -> Void = {_ in }) {
         // define request parameters
         let requestURL = "https://api.projectoxford.ai/vision/v1.0/ocr"
         let subscriptionKey = "85d0480addf8496aa398907299eb56af"
@@ -108,7 +108,7 @@ struct MicrosoftOCR {
             }.resume()
     }
     
-    func loadAndParse(imageURL:String, completion: @escaping (_ result: [[String:Any]]) -> Void = {_ in }) {
+    static func loadAndParse(imageURL:String, completion: @escaping (_ result: [[String:Any]]) -> Void = {_ in }) {
         loadMicrosoftComputerVisionOCRData(imageURL: imageURL, completion: { (result: [String:Any]) -> Void in
             
             var toRet: [[String:Any]] = []
@@ -118,11 +118,11 @@ struct MicrosoftOCR {
                     for word: [String:Any] in (line["words"] as! [[String:Any]]) {
                         let wordText: String = (word["text"] as! String).replacingOccurrences(of: "$", with: "").replacingOccurrences(of: " ", with: "").replacingOccurrences(of: "so", with: "0").replacingOccurrences(of: "o", with: "0")
                         if (wordText).range(of:".") != nil {
-                            let parsedFloat = Float(wordText) ?? 0
-                            if parsedFloat != 0 {
+                            let parsedDouble = Double(wordText) ?? 0
+                            if parsedDouble != 0 {
                                 toRet.append([
                                     "boundingBox": word["boundingBox"]!,
-                                    "price": parsedFloat
+                                    "price": parsedDouble
                                     ])
                             }
                         }

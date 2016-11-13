@@ -43,41 +43,7 @@ class Checkout2ViewController: UIViewController {
     }
     
     func buttonClicked(sender: UIButton) {
-        
-        if(sender.tag == 1) {
-            print(getVenmoURL(username: arrayUsers[0].username, price: arrayUsers[0].price))
-        } else if(sender.tag == 2) {
-            print(getVenmoURL(username: arrayUsers[1].username, price: arrayUsers[1].price))
-        } else if(sender.tag == 3) {
-            print(getVenmoURL(username: arrayUsers[2].username, price: arrayUsers[2].price))
-        } else if(sender.tag == 4) {
-            print(getVenmoURL(username: arrayUsers[3].username, price: arrayUsers[3].price))
-        }
-    }
-    
-    func getVenmoURL(username: String, price: Double) -> String {
-        
-        
-        // need to add logic for the note
-        
-        let myPrice = price
-        let x = String(myPrice)
-        
-        var note = "hai hai"
-        
-        note = note.replacingOccurrences(of: " ", with: "%20");
-        
-        //        venmoURL = ("https://venmo.com/?txn=charge&audience=public&recipients=")
-        
-        var venmoURL = ("venmo://paycharge?txn=charge&audience=public&recipients=")
-        
-        venmoURL.append(username)
-        venmoURL.append("&amount=")
-        venmoURL.append(x)
-        venmoURL.append("&note=")
-        venmoURL.append(note)
-        
-        return venmoURL
+        Venmo.openVenmoCharge(recipients: [arrayUsers[sender.tag].username], amount: arrayUsers[sender.tag].price)
     }
     
 }

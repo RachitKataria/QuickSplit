@@ -63,7 +63,7 @@ class ChooseItemViewController: UIViewController {
             let x = boundaries["left"] as! Int
             let width = boundaries["width"] as! Int
             let height = boundaries["height"] as! Int
-            let price = a["price"] as! Float
+            let price = a["price"] as! Double
             
             //Scale and offset
             let yscaled = Double(y)/9
@@ -152,8 +152,7 @@ class ChooseItemViewController: UIViewController {
     }
     */
     func readReceipt(url: String) -> Void {
-        let mOCR = MicrosoftOCR()
-        mOCR.loadAndParse(imageURL: receiptURL , completion: createDeepLinkButtons)
+        MicrosoftOCR.loadAndParse(imageURL: receiptURL , completion: createDeepLinkButtons)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if(segue.identifier == "lol") {
