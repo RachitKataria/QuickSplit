@@ -35,7 +35,7 @@ class ChooseItemViewController: UIViewController {
         readReceipt(url: receiptURL)
         
         for username in usernames {
-            usernameToButtonMap[username] = nil
+            usernameToButtonMap[username] = []
         }
         
         
@@ -109,14 +109,13 @@ class ChooseItemViewController: UIViewController {
         }
         
         counter += 1
-        
+        print(counter, " ", usernames.count)
         if(counter == usernames.count) {
             // Logic to determine price per user
-            
             var price: Double = 0
             for username in usernameToButtonMap.keys {
                 for button in usernameToButtonMap[username]! {
-                    price += button.getPrice() / Double(button.getCount())
+                    price += button.getPrice() / Double(button.getCount() + 1)
                 }
                 
                 let user = User(usrname: username, price: price)
@@ -126,6 +125,12 @@ class ChooseItemViewController: UIViewController {
                 
                 
             }
+            
+            performSegue(withIdentifier: "lol", sender: nil)
+            
+            //viewController.arrayUsers = users
+            //present(viewController, animated: true, completion: nil)
+
         }
         else {
             for button in buttons {
@@ -149,5 +154,12 @@ class ChooseItemViewController: UIViewController {
     func readReceipt(url: String) -> Void {
         let mOCR = MicrosoftOCR()
         mOCR.loadAndParse(imageURL: receiptURL , completion: createDeepLinkButtons)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "lol") {
+            let a = segue.destination as! Checkout2ViewController
+            a.arrayUsers = users
+        }
+        
     }
 }

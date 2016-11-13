@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CheckoutViewController: UIViewController {
+class Checkout2ViewController: UIViewController {
     
     @IBOutlet weak var userCheckoutButton1: UIButton!
     @IBOutlet weak var userCheckoutButton2: UIButton!
@@ -22,21 +22,24 @@ class CheckoutViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        arrayButtons.append(userCheckoutButton1)
-        arrayButtons.append(userCheckoutButton2)
-        arrayButtons.append(userCheckoutButton3)
-        arrayButtons.append(userCheckoutButton4)
-        
-        for i in 0...arrayButtons.capacity {
-            arrayButtons[i].tag = i + 1
+        DispatchQueue.main.async {
+            self.arrayButtons.append(self.userCheckoutButton1)
+            self.arrayButtons.append(self.userCheckoutButton2)
+            self.arrayButtons.append(self.userCheckoutButton3)
+            self.arrayButtons.append(self.userCheckoutButton4)
+            
+            for i in 0...self.arrayButtons.capacity - 1 {
+                self.arrayButtons[i].tag = i + 1
+            }
+            
+            for i in 0...self.arrayButtons.capacity - 1 {
+                self.arrayButtons[i].addTarget(self,action:#selector(self.buttonClicked),for:.touchUpInside)
+            }
+            
+            //        splitButton.isHidden = true
+            // Do any additional setup after loading the view.
         }
         
-        for i in 0...arrayButtons.capacity {
-            arrayButtons[i].addTarget(self,action:#selector(buttonClicked),for:.touchUpInside)
-        }
-        
-        //        splitButton.isHidden = true
-        // Do any additional setup after loading the view.
     }
     
     func buttonClicked(sender: UIButton) {
