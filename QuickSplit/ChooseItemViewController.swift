@@ -71,10 +71,10 @@ class ChooseItemViewController: UIViewController {
             let price = a["price"] as! Double
             
             //Scale and offset
-            let yscaled = Double(y)/9
-            let xscaled = Double(x)/9
-            let widthScaled = Double(width)/9
-            let heightScaled = Double(height)/9
+            let yscaled = Double(y) / ImgurUpload.mult
+            let xscaled = Double(x) / ImgurUpload.mult
+            let widthScaled = Double(width) / ImgurUpload.mult
+            let heightScaled = Double(height) / ImgurUpload.mult
             let yoffset = yscaled + 93
             let xoffset = xscaled + 19
             print("a button")
