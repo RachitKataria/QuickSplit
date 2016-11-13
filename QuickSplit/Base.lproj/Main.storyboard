@@ -43,23 +43,15 @@
                                     <action selector="uploadButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bJq-ke-7b7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PgF-3y-jnX">
-                                <rect key="frame" x="187" y="507" width="172" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PgF-3y-jnX">
+                                <rect key="frame" x="234" y="507" width="50" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="93L-sI-ONB"/>
-                                    <constraint firstAttribute="width" constant="172" id="uaM-KP-4GI"/>
+                                    <constraint firstAttribute="height" constant="50" id="93L-sI-ONB"/>
+                                    <constraint firstAttribute="width" constant="50" id="uaM-KP-4GI"/>
                                 </constraints>
-                                <state key="normal" title="cam roll"/>
+                                <state key="normal" image="grid-view"/>
                                 <connections>
                                     <action selector="uploadFromCameraRollClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hhh-NF-Psx"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ulf-B6-Rfb">
-                                <rect key="frame" x="172" y="617" width="31" height="30"/>
-                                <state key="normal" title="Split"/>
-                                <connections>
-                                    <action selector="splitClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uxF-5I-ZNf"/>
-                                    <segue destination="pgv-jN-LOR" kind="show" identifier="segueToReceiptView" id="Lnj-0e-hSM"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SPLIT" translatesAutoresizingMaskIntoConstraints="NO" id="1a6-FW-kan">
@@ -77,19 +69,31 @@
                                 </constraints>
                             </imageView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="At5-mx-yAI">
-                                <rect key="frame" x="169" y="545" width="37" height="37"/>
+                                <rect key="frame" x="169" y="565" width="37" height="37"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="37" id="31R-H6-NTx"/>
                                     <constraint firstAttribute="height" constant="37" id="QZT-pP-6mI"/>
                                 </constraints>
                                 <color key="color" cocoaTouchSystemColor="darkTextColor"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ulf-B6-Rfb">
+                                <rect key="frame" x="319" y="607" width="30" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="2c8-3C-TF2"/>
+                                    <constraint firstAttribute="width" constant="30" id="HwC-j0-Jl2"/>
+                                </constraints>
+                                <state key="normal" image="disclosure-indicator"/>
+                                <connections>
+                                    <action selector="splitClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uxF-5I-ZNf"/>
+                                    <segue destination="pgv-jN-LOR" kind="show" identifier="segueToReceiptView" id="Lnj-0e-hSM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="mr9-Ya-eCr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3LG-MB-gyO"/>
-                            <constraint firstItem="Ulf-B6-Rfb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="5eT-wg-OfT"/>
                             <constraint firstItem="PgF-3y-jnX" firstAttribute="top" secondItem="Put-0c-xHG" secondAttribute="bottom" constant="26" id="Hp8-fF-zEP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ulf-B6-Rfb" secondAttribute="trailing" constant="10" id="I0C-0G-xXr"/>
                             <constraint firstItem="ucG-oh-cJS" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="60" id="JPg-om-muk"/>
                             <constraint firstItem="1a6-FW-kan" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="KVH-EW-FDh"/>
                             <constraint firstItem="ucG-oh-cJS" firstAttribute="top" secondItem="Put-0c-xHG" secondAttribute="bottom" constant="20" id="Met-A7-k9A"/>
@@ -103,7 +107,7 @@
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="AW3-ZF-Dms" secondAttribute="bottom" id="izQ-rq-qnA"/>
                             <constraint firstItem="AW3-ZF-Dms" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="o8x-UH-wFh"/>
                             <constraint firstAttribute="trailing" secondItem="AW3-ZF-Dms" secondAttribute="trailing" id="oV0-nu-EGO"/>
-                            <constraint firstItem="PgF-3y-jnX" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="pOX-6z-A7z"/>
+                            <constraint firstItem="PgF-3y-jnX" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="-75" id="v7m-1T-auJ"/>
                             <constraint firstItem="AW3-ZF-Dms" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="xPB-Zd-es9"/>
                         </constraints>
                     </view>
@@ -133,13 +137,13 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="Gvt-R4-OGg">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Venmo Usernames" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9QD-pj-2xr">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Add Venmo Usernames" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9QD-pj-2xr">
                                 <rect key="frame" x="97" y="30" width="180" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bg-Fm-Iud">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bg-Fm-Iud">
                                 <rect key="frame" x="136" y="411" width="102" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="102" id="G0P-vQ-7Io"/>
@@ -150,45 +154,61 @@
                                     <action selector="addUserButtonClicked:" destination="pgv-jN-LOR" eventType="touchUpInside" id="3EG-Lt-EeG"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xPQ-xC-miS">
-                                <rect key="frame" x="162.5" y="461" width="50" height="176"/>
-                                <state key="normal" title="Charge"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xPQ-xC-miS">
+                                <rect key="frame" x="113" y="562" width="150" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="LOV-0y-7qH"/>
+                                    <constraint firstAttribute="width" constant="150" id="eNz-Ox-ygk"/>
+                                </constraints>
+                                <state key="normal" image="Charge"/>
                                 <connections>
                                     <action selector="clickedChargeButton:" destination="pgv-jN-LOR" eventType="touchUpInside" id="WK3-Sa-8EH"/>
                                     <action selector="doneButtonClicked:" destination="pgv-jN-LOR" eventType="touchUpInside" id="QL0-ub-o0o"/>
                                 </connections>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eKy-LJ-bdt">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eKy-LJ-bdt">
                                 <rect key="frame" x="33" y="71" width="310" height="300"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="F5e-Nl-iy2"/>
                                     <constraint firstAttribute="width" constant="310" id="Z2U-T4-ahe"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UsernameCell" id="Hfg-fh-Chi" customClass="UsernameTableViewCell" customModule="QuickSplit" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" alpha="0.40000000000000002" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UsernameCell" id="Hfg-fh-Chi" customClass="UsernameTableViewCell" customModule="QuickSplit" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="310" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hfg-fh-Chi" id="bU6-aj-rN2">
-                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EcI-QP-MSd">
-                                                    <rect key="frame" x="8" y="8" width="104" height="24"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EcI-QP-MSd">
+                                                    <rect key="frame" x="8" y="8" width="199" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="24" id="MZd-1t-65f"/>
+                                                        <constraint firstAttribute="width" constant="199" id="drh-PH-IRc"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdy-th-6F5">
-                                                    <rect key="frame" x="248" y="7" width="46" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdy-th-6F5">
+                                                    <rect key="frame" x="263" y="0.0" width="39" height="43"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43" id="LHJ-do-Rjo"/>
+                                                        <constraint firstAttribute="width" constant="39" id="bhf-jQ-aJb"/>
+                                                    </constraints>
+                                                    <state key="normal" image="disclosure-indicator"/>
                                                     <connections>
                                                         <action selector="didClickSegueButton:" destination="Hfg-fh-Chi" eventType="touchUpInside" id="YFh-PD-Rg1"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="pdy-th-6F5" firstAttribute="top" secondItem="bU6-aj-rN2" secondAttribute="top" id="8PZ-fn-3eb"/>
+                                                <constraint firstItem="EcI-QP-MSd" firstAttribute="leading" secondItem="bU6-aj-rN2" secondAttribute="leadingMargin" id="Bid-dr-wom"/>
+                                                <constraint firstAttribute="trailing" secondItem="pdy-th-6F5" secondAttribute="trailing" constant="8" id="YbZ-gt-hTd"/>
+                                                <constraint firstItem="EcI-QP-MSd" firstAttribute="top" secondItem="bU6-aj-rN2" secondAttribute="topMargin" id="fLH-sS-n8D"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="segueButton" destination="pdy-th-6F5" id="0Ij-fU-alj"/>
@@ -224,7 +244,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9hh-Dc-GrN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="297" y="95"/>
+            <point key="canvasLocation" x="296.80000000000001" y="94.902548725637189"/>
         </scene>
         <!--Choose Item View Controller-->
         <scene sceneID="tdn-UZ-kxI">
@@ -377,9 +397,12 @@
     <resources>
         <image name="Background" width="1125" height="2001"/>
         <image name="CameraButton" width="192" height="192"/>
+        <image name="Charge" width="471" height="225"/>
         <image name="Group" width="1002" height="1335"/>
         <image name="SPLIT" width="279" height="108"/>
         <image name="Snap your receipt, split the bill" width="597" height="42"/>
+        <image name="disclosure-indicator" width="48" height="78"/>
+        <image name="grid-view" width="75" height="66"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Lnj-0e-hSM"/>
