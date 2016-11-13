@@ -11,6 +11,8 @@ import UIKit
 class ChooseItemViewController: UIViewController {
 
     var receiptURL: String = ""
+    var usernames: [String] = []
+    var image: UIImage?
     
     @IBOutlet weak var receiptImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!

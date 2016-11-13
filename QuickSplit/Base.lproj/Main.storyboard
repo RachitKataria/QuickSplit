@@ -106,7 +106,7 @@
                                 <state key="normal" title="Done"/>
                                 <connections>
                                     <action selector="doneButtonClicked:" destination="pgv-jN-LOR" eventType="touchUpInside" id="QL0-ub-o0o"/>
-                                    <segue destination="yXz-Oi-Hqn" kind="show" id="XeN-5b-CHo"/>
+                                    <segue destination="yXz-Oi-Hqn" kind="show" identifier="segueToChooseItemView" id="XeN-5b-CHo"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="olM-a5-xAF">

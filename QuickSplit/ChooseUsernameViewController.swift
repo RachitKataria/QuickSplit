@@ -20,6 +20,7 @@ class ChooseUsernameViewController: UIViewController {
     var receiptImage : UIImage?
     var imageURL : String?
     var numUsernames:Int = 1;
+    var usernames: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,14 +60,29 @@ class ChooseUsernameViewController: UIViewController {
     }
     
     @IBAction func doneButtonClicked(_ sender: Any) {
-        var textfields: [UITextField] = [user1TextField, user2TextField, user3TextField, user4TextField]
+        let textfields: [UITextField] = [user1TextField, user2TextField, user3TextField, user4TextField]
+
         
-        
+        for textfield in textfields {
+            if(textfield.isEnabled) {
+                usernames.insert(textfield.text!, at: usernames.count)
+            }
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
         super.touchesBegan(touches, with: event)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "segueToChooseItemView")
+        {
+            let csvc = segue.destination as! ChooseItemViewController
+            csvc.image = self.receiptImage!
+            csvc.receiptURL = self.imageURL!
+            csvc.usernames = self.usernames
+        }
     }
 
 }
