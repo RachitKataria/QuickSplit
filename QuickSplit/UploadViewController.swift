@@ -35,13 +35,18 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
     
     @IBAction func uploadButtonClicked(_ sender: Any) {
-        let vc = UIImagePickerController()
-        vc.delegate = self
-        vc.allowsEditing = false
-        vc.sourceType = .camera
-        vc.modalPresentationStyle = .fullScreen
         
-        self.present(vc, animated: true, completion: nil)
+        if(UIImagePickerController.isSourceTypeAvailable(.camera)){
+            let vc = UIImagePickerController()
+            vc.delegate = self
+            vc.allowsEditing = false
+            vc.sourceType = .camera
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
+        }
+        else {
+            noCamera()
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -71,6 +76,21 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
             csvc.receiptImage = self.receiptImage
             print("finished")
         }
+    }
+    func noCamera() {
+        let alertVC = UIAlertController(
+            title: "No Camera",
+            message: "Sorry, this device has no camera",
+            preferredStyle: .alert)
+        let okAction = UIAlertAction(
+            title: "OK",
+            style:.default,
+            handler: nil)
+        alertVC.addAction(okAction)
+        present(
+            alertVC,
+            animated: true,
+            completion: nil)
     }
 
 }
