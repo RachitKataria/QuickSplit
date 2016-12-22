@@ -254,6 +254,10 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="M07-aL-hKC">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="wzB-7Z-GxJ" appends="YES" id="47r-6S-rlM"/>
+                                </connections>
                             </imageView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="vGi-Oc-JuQ">
                                 <rect key="frame" x="30" y="88" width="314" height="29"/>
@@ -339,6 +343,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gHJ-bH-oKd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="wzB-7Z-GxJ"/>
             </objects>
             <point key="canvasLocation" x="1013.6" y="-494.30284857571218"/>
         </scene>

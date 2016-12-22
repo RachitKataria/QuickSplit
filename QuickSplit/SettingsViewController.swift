@@ -60,13 +60,14 @@ class SettingsViewController: UIViewController, CLLocationManagerDelegate, UITab
         //locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation() //starts receiving location updates from CoreLocation
+
     }
     
     func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        searchTableView.isHidden = false
         let newText = NSString(string: searchBar.text!).replacingCharacters(in: range, with: text)
         cityTyped = newText
         fetchCities(query: cityTyped)
-        
         return true
     }
 
@@ -145,8 +146,9 @@ class SettingsViewController: UIViewController, CLLocationManagerDelegate, UITab
             
             if placemarks!.count > 0 {
                 let pm = placemarks![0]
-                self.displayLocationInfo(placemark: pm)
-                
+                if(self.segmentedControl.selectedSegmentIndex == 0) {
+                    self.displayLocationInfo(placemark: pm)
+                }
                 
             } else {
                 print("Problem with the data received from geocoder")
@@ -178,6 +180,7 @@ class SettingsViewController: UIViewController, CLLocationManagerDelegate, UITab
         let defaults = UserDefaults.standard
         defaults.set(locationChosen, forKey: "city")
         defaults.synchronize()
+        searchTableView.isHidden = true
     }
    
 
