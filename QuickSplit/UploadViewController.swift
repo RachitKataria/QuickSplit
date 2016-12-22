@@ -17,8 +17,7 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
         super.viewDidLoad()
         self.navigationController?.navigationBar.backgroundColor = UIColor(red: 239/255, green: 167/255, blue: 73/255, alpha: 1.0)
         self.navigationController?.navigationBar.isOpaque = false
-        //I CANNOT FIGURE OUT HOW TO GET THE NAV BAR TO BE THE SAME COLOR I TRIED FOR SO LONG LOL SOMEONE PLS FIX
-        ///navigationController?.navigationBar.barTintColor = UIColor.clear
+        navigationController?.navigationBar.barTintColor = UIColor(red: 239/255, green: 167/255, blue: 73/255, alpha: 1.0)
 
 //        splitButton.isHidden = true
         // Do any additional setup after loading the view.
