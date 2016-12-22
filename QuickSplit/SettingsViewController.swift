@@ -16,17 +16,18 @@ class SettingsViewController: UIViewController, CLLocationManagerDelegate {
 
     let locationManager = CLLocationManager()
     let API_KEY = "AIzaSyDl7xbKCu609eOsFo4zMsfWGnU5Tk_45OY"
+    let TAX_API_KEY = "CCWiDJBMv9wHrpn9KtN7T6wrekhHWyRY8cid7mlKR8GWUWcNinQtukhabzxCNFtFZ8EOPoNY7vdQ15im6pEPmg=="
     var newWordField: UITextField?
     var cityTyped = ""
     var currLocation = ""
     var locationChosen = ""
     var results: NSArray = []
+    var zip = ""
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
         //LOAD FROM USER DEFAULTS
-        
         let defaults = UserDefaults.standard
         let savedIndex = defaults.integer(forKey: "selectedIndex")
         segmentedControl.selectedSegmentIndex = (savedIndex)
@@ -34,7 +35,11 @@ class SettingsViewController: UIViewController, CLLocationManagerDelegate {
         let city = defaults.object(forKey: "city") as? String
         if(city != nil) {
             currentCityLabel.text = city!
+            zip = city!
         }
+        
+        fetchTaxRate(query: zip)
+
         
         //Location setup
         locationManager.delegate = self //sets the class as delegate for locationManager
@@ -44,7 +49,25 @@ class SettingsViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.startUpdatingLocation() //starts receiving location updates from CoreLocation
     }
 
-
+    func fetchTaxRate(query: String) {
+        let url = NSURL(string: "https://taxrates.api.avalara.com/postal?country=usa&postal=\(zip)&apikey=\(TAX_API_KEY)")
+        let request = NSURLRequest(url: url! as URL)
+        let session = URLSession(
+            configuration: URLSessionConfiguration.default,
+            delegate:nil,
+            delegateQueue:OperationQueue.main
+        )
+        
+        let task : URLSessionDataTask = session.dataTask(with: request as URLRequest, completionHandler: { (dataOrNil, response, error) in
+            if let data = dataOrNil {
+                if let responseDictionary = try! JSONSerialization.jsonObject(with: data, options:[]) as? NSDictionary {
+                    self.taxPercentageLabel.text = "\(responseDictionary.value(forKeyPath: "totalRate")!)%"
+                }
+            }
+        });
+        
+        task.resume()
+    }
     func fetchCities(query: String) {
         print("google apps api being called")
         let queryString = cityTyped.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)!
@@ -88,6 +111,9 @@ class SettingsViewController: UIViewController, CLLocationManagerDelegate {
         let defaults = UserDefaults.standard
         defaults.set(self.newWordField?.text, forKey: "city")
         defaults.synchronize()
+        zip = self.newWordField?.text
+        fetchTaxRate(query: zip)
+        
     }
     @IBAction func segControlValueChanged(_ sender: Any) {
         if(segmentedControl.selectedSegmentIndex == 0) { //Current city
@@ -141,12 +167,15 @@ class SettingsViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.stopUpdatingLocation()
             print(containsPlacemark)
             //Pass into global currlat and long variables
-            currLocation = ("\((containsPlacemark.postalCode)!), \((containsPlacemark.country)!)")
+            currLocation = "\(containsPlacemark.postalCode!)"
             print(currLocation)
             currentCityLabel.text = currLocation
+            
             let defaults = UserDefaults.standard
-            defaults.set(currLocation, forKey: "city")
+            defaults.set((containsPlacemark.postalCode)!, forKey: "city")
             defaults.synchronize()
+            zip = currLocation
+            fetchTaxRate(query: zip)
         }
         
     }
