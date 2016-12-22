@@ -117,6 +117,7 @@ class SettingsViewController: UIViewController, CLLocationManagerDelegate, UITab
             searchTableView.isHidden = true
             searchBar.isHidden = true
             //Current City label should display current city
+            currentCityLabel.text = currLocation
             
         }
         else { //Search for a city
