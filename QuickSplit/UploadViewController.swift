@@ -15,6 +15,10 @@ class UploadViewController: UIViewController, UIImagePickerControllerDelegate, U
     var receiptImage : UIImage?
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.backgroundColor = UIColor(red: 239/255, green: 167/255, blue: 73/255, alpha: 1.0)
+        self.navigationController?.navigationBar.isOpaque = false
+        //I CANNOT FIGURE OUT HOW TO GET THE NAV BAR TO BE THE SAME COLOR I TRIED FOR SO LONG LOL SOMEONE PLS FIX
+        ///navigationController?.navigationBar.barTintColor = UIColor.clear
 
 //        splitButton.isHidden = true
         // Do any additional setup after loading the view.
