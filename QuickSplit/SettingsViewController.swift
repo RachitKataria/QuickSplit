@@ -111,7 +111,7 @@ class SettingsViewController: UIViewController, CLLocationManagerDelegate {
         let defaults = UserDefaults.standard
         defaults.set(self.newWordField?.text, forKey: "city")
         defaults.synchronize()
-        zip = self.newWordField?.text
+        zip = (self.newWordField?.text)!
         fetchTaxRate(query: zip)
         
     }

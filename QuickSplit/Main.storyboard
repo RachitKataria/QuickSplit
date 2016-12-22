@@ -277,7 +277,7 @@
                                     <constraint firstAttribute="width" constant="240" id="MhQ-Ok-Iwb"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lx1-SZ-e81">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="%%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lx1-SZ-e81">
                                 <rect key="frame" x="252" y="185" width="55" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="55" id="0Hv-dq-t8C"/>
