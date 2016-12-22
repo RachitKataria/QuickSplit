@@ -12,7 +12,6 @@ import CoreLocation
 class SettingsViewController: UIViewController, CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-    @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var currentCityLabel: UILabel!
     @IBOutlet weak var searchTableView: UITableView!
     @IBOutlet weak var taxPercentageLabel: UILabel!
@@ -43,7 +42,7 @@ class SettingsViewController: UIViewController, CLLocationManagerDelegate, UITab
         }
         else {
             searchTableView.isHidden = false
-            searchTextField.isHidden = false
+            searchBar.isHidden = false
         }
         
         
@@ -56,7 +55,7 @@ class SettingsViewController: UIViewController, CLLocationManagerDelegate, UITab
         locationManager.startUpdatingLocation() //starts receiving location updates from CoreLocation
     }
     
-    func searchBar(searchBar: UISearchBar, shouldChangeTextInRange range: NSRange, replacementText text: String) -> Bool {
+    func searchBar(_ searchBar: UISearchBar, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         let newText = NSString(string: searchBar.text!).replacingCharacters(in: range, with: text)
         cityTyped = newText
         fetchCities(query: cityTyped)
@@ -97,7 +96,7 @@ class SettingsViewController: UIViewController, CLLocationManagerDelegate, UITab
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell") as! SearchTableViewCell
         
-        cell.searchResultLabel.text = ((results[indexPath.row]) as AnyObject).value("description") as? String
+        cell.searchResultLabel.text = (((results[indexPath.row]) as! NSDictionary).value(forKey: "description") as? String)!
         return cell
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -108,14 +107,14 @@ class SettingsViewController: UIViewController, CLLocationManagerDelegate, UITab
     @IBAction func segControlValueChanged(_ sender: Any) {
         if(segmentedControl.selectedSegmentIndex == 0) { //Current city
             searchTableView.isHidden = true
-            searchTextField.isHidden = true
+            searchBar.isHidden = true
             //Current City label should display current city
             
         }
         else { //Search for a city
             currentCityLabel.text = ""
             searchTableView.isHidden = false
-            searchTextField.isHidden = false
+            searchBar.isHidden = false
         }
 
     }
@@ -159,8 +158,9 @@ class SettingsViewController: UIViewController, CLLocationManagerDelegate, UITab
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        locationChosen = ((results[indexPath.row]) as AnyObject).value("description") as! String
+        locationChosen = (((results[indexPath.row]) as! NSDictionary).value(forKey: "description") as? String)!
         print(locationChosen)
+        currentCityLabel.text = locationChosen
     }
    
 
