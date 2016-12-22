@@ -95,7 +95,7 @@ class SettingsViewController: UIViewController, CLLocationManagerDelegate, UITab
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell") as! SearchTableViewCell
-        
+        cell.backgroundColor = UIColor.clear 
         cell.searchResultLabel.text = (((results[indexPath.row]) as! NSDictionary).value(forKey: "description") as? String)!
         return cell
     }
