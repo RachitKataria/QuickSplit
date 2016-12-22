@@ -27,18 +27,25 @@ class SettingsViewController: UIViewController, CLLocationManagerDelegate, UITab
         
         super.viewDidLoad()
         
+        
         searchTableView.dataSource = self
         searchTableView.delegate = self
         searchBar.delegate = self
         
-        //TODO: have the selected segment index be whatever was last used (use nsuserdefaults)
+        //LOAD FROM USER DEFAULTS
+        
+        let defaults = UserDefaults.standard
+        let savedIndex = defaults.integer(forKey: "selectedIndex")
+        segmentedControl.selectedSegmentIndex = (savedIndex)
+        
+        let city = defaults.object(forKey: "city") as? String
+        if(city != nil) {
+            currentCityLabel.text = city!
+        }
         
         if(segmentedControl.selectedSegmentIndex == 0) {
             searchBar.isHidden = true
             searchBar.isHidden = true
-            
-            //TODO: Current City label should display current city
-            
         }
         else {
             searchTableView.isHidden = false
@@ -95,7 +102,7 @@ class SettingsViewController: UIViewController, CLLocationManagerDelegate, UITab
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SearchCell") as! SearchTableViewCell
-        cell.backgroundColor = UIColor.clear 
+        cell.backgroundColor = UIColor.clear
         cell.searchResultLabel.text = (((results[indexPath.row]) as! NSDictionary).value(forKey: "description") as? String)!
         return cell
     }
@@ -116,6 +123,10 @@ class SettingsViewController: UIViewController, CLLocationManagerDelegate, UITab
             searchTableView.isHidden = false
             searchBar.isHidden = false
         }
+        
+        let defaults = UserDefaults.standard
+        defaults.set(segmentedControl.selectedSegmentIndex, forKey: "selectedIndex")
+        defaults.synchronize()
 
     }
     
@@ -153,6 +164,9 @@ class SettingsViewController: UIViewController, CLLocationManagerDelegate, UITab
             currLocation = ("\((containsPlacemark.locality)!), \((containsPlacemark.administrativeArea)!)")
             print(currLocation)
             currentCityLabel.text = currLocation
+            let defaults = UserDefaults.standard
+            defaults.set(currLocation, forKey: "city")
+            defaults.synchronize()
         }
         
     }
@@ -161,6 +175,9 @@ class SettingsViewController: UIViewController, CLLocationManagerDelegate, UITab
         locationChosen = (((results[indexPath.row]) as! NSDictionary).value(forKey: "description") as? String)!
         print(locationChosen)
         currentCityLabel.text = locationChosen
+        let defaults = UserDefaults.standard
+        defaults.set(locationChosen, forKey: "city")
+        defaults.synchronize()
     }
    
 
