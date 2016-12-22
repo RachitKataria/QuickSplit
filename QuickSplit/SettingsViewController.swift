@@ -16,10 +16,13 @@ class SettingsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //TODO: have the selected segment index be whatever was last used (use nsuserdefaults)
+        
         if(segmentedControl.selectedSegmentIndex == 0) {
             searchTableView.isHidden = true
             searchTextField.isHidden = true
-            //Current City label should display current city
+            
+            //TODO: Current City label should display current city
             
         }
         else {
@@ -34,14 +37,19 @@ class SettingsViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
+    @IBAction func segControlValueChanged(_ sender: Any) {
+        if(segmentedControl.selectedSegmentIndex == 0) { //Current city
+            searchTableView.isHidden = true
+            searchTextField.isHidden = true
+            //Current City label should display current city
+            
+        }
+        else { //Search for a city
+            searchTableView.isHidden = false
+            searchTextField.isHidden = false
+        }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
+   
 
 }

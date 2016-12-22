@@ -263,6 +263,9 @@
                                     <segment title="Choose City"/>
                                 </segments>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="segControlValueChanged:" destination="gp0-s2-We3" eventType="valueChanged" id="yek-Ar-phc"/>
+                                </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Current City" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OmX-HQ-sto">
                                 <rect key="frame" x="0.0" y="170" width="375" height="50"/>
