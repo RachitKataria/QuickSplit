@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8AC468A01E0C671E008634CB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC4689F1E0C671E008634CB /* SettingsViewController.swift */; };
+		8AC468A21E0C6961008634CB /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AC468A11E0C6961008634CB /* SearchTableViewCell.swift */; };
 		8AF4C6551DD7AA970067961D /* UploadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF4C6541DD7AA970067961D /* UploadViewController.swift */; };
 		8AF4C6571DD7AAC60067961D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF4C6561DD7AAC60067961D /* User.swift */; };
 		8AF4C6931DD821890067961D /* Checkout2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AF4C6921DD821890067961D /* Checkout2ViewController.swift */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8AC4689F1E0C671E008634CB /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		8AC468A11E0C6961008634CB /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		8AF4C6541DD7AA970067961D /* UploadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadViewController.swift; sourceTree = "<group>"; };
 		8AF4C6561DD7AAC60067961D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8AF4C6921DD821890067961D /* Checkout2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Checkout2ViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +100,7 @@
 				BEDFEC241DD7AC8A002B0CA4 /* ChooseUsernameViewController.swift */,
 				8AF4C6541DD7AA970067961D /* UploadViewController.swift */,
 				BEB3482C1DD7983000BD9F6B /* ViewController.swift */,
+				8AC4689F1E0C671E008634CB /* SettingsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -130,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				8AF4C6561DD7AAC60067961D /* User.swift */,
+				8AC468A11E0C6961008634CB /* SearchTableViewCell.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -216,8 +222,10 @@
 				BEDFEC251DD7AC8A002B0CA4 /* ChooseUsernameViewController.swift in Sources */,
 				BE21A4431DD85CC3000F2BC2 /* UsernameTableViewCell.swift in Sources */,
 				F222266B1DD82480006E598A /* Venmo.swift in Sources */,
+				8AC468A01E0C671E008634CB /* SettingsViewController.swift in Sources */,
 				8AF4C6571DD7AAC60067961D /* User.swift in Sources */,
 				BEB3482B1DD7983000BD9F6B /* AppDelegate.swift in Sources */,
+				8AC468A21E0C6961008634CB /* SearchTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
