@@ -26,6 +26,8 @@
 	<string>Upload a Photo</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Upload a Photo</string>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Use current location to determine tax rate</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
