@@ -11,7 +11,8 @@ import UIKit
 class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var chooseUsersLabel: UILabel!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var addUserButton: UIButton!
+    @IBOutlet weak var chargeButton: UIButton!
     
     var receiptImage : UIImage?
     var imageURL : String?
@@ -31,23 +32,28 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
     override func viewDidLoad() {
         print("entered view did load")
         super.viewDidLoad()
-        self.activityIndicator.isHidden = true
         
-        
-        DispatchQueue.main.async {
-            //CHANGE LATER
-            self.activityIndicator.isHidden = true
-            self.activityIndicator.startAnimating()
+        if(usernames.count == 0 || self.imageURL == nil) {
+            chargeButton.isEnabled = false;
         }
-
-        // upload
-        ImgurUpload.upload(image: receiptImage!, completion: {(link: String) -> Void in
-            self.imageURL = link
+        
+        if(self.imageURL == nil) {
             DispatchQueue.main.async {
-                self.activityIndicator.stopAnimating()
-                self.activityIndicator.isHidden = true
+                //CHANGE LATER
+                self.addUserButton.isEnabled = false
             }
-        })
+            // upload
+            ImgurUpload.upload(image: receiptImage!, completion: {(link: String) -> Void in
+                self.imageURL = link
+                DispatchQueue.main.async {
+                    self.addUserButton.isEnabled = true
+                    
+                    if(self.usernames.count != 0) {
+                        self.chargeButton.isEnabled = true;
+                    }
+                }
+            })
+        }
         
         // table view delegate data source (init)
         usernameTableView.delegate = self
@@ -80,6 +86,10 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
             
             self.usernameToButtonMap[text!] = []
             self.usernameTableView.reloadData()
+            
+            if(self.usernames.count > 0) {
+                self.chargeButton.isEnabled = true
+            }
         }
         
         let cancelAction = UIAlertAction(title: "Cancel", style: .default) { (action) in

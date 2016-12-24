@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MFP-AB-38c">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D17a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="MFP-AB-38c">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -156,7 +156,7 @@
                                         <rect key="frame" x="0.0" y="28" width="310" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hfg-fh-Chi" id="bU6-aj-rN2">
-                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="310" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EcI-QP-MSd">
@@ -196,33 +196,24 @@
                                 </prototypes>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Add Venmo username" translatesAutoresizingMaskIntoConstraints="NO" id="b8S-pe-r2D">
-                                <rect key="frame" x="68" y="-13" width="240" height="128"/>
+                                <rect key="frame" x="87.5" y="20" width="200" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="128" id="98s-CN-kDN"/>
+                                    <constraint firstAttribute="width" constant="200" id="KDC-WI-xJ4"/>
+                                    <constraint firstAttribute="height" constant="20" id="tRL-2h-pN7"/>
                                 </constraints>
                             </imageView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="At5-mx-yAI">
-                                <rect key="frame" x="169" y="315" width="37" height="37"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="37" id="31R-H6-NTx"/>
-                                    <constraint firstAttribute="height" constant="37" id="QZT-pP-6mI"/>
-                                </constraints>
-                                <color key="color" cocoaTouchSystemColor="darkTextColor"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="b8S-pe-r2D" firstAttribute="top" secondItem="xNu-na-j34" secondAttribute="top" constant="20" id="2yc-ew-6rL"/>
                             <constraint firstItem="eKy-LJ-bdt" firstAttribute="centerX" secondItem="xNu-na-j34" secondAttribute="centerX" id="3Ni-3D-wrR"/>
-                            <constraint firstItem="At5-mx-yAI" firstAttribute="centerX" secondItem="xNu-na-j34" secondAttribute="centerX" id="6ER-ww-dvp"/>
                             <constraint firstItem="sgS-k4-nY5" firstAttribute="top" secondItem="xPQ-xC-miS" secondAttribute="bottom" constant="30" id="7tO-uO-meX"/>
+                            <constraint firstItem="eKy-LJ-bdt" firstAttribute="top" secondItem="b8S-pe-r2D" secondAttribute="bottom" constant="31" id="8QL-fx-Yed"/>
                             <constraint firstItem="sgS-k4-nY5" firstAttribute="top" secondItem="Gvt-R4-OGg" secondAttribute="bottom" id="Dwj-dK-eF8"/>
-                            <constraint firstItem="At5-mx-yAI" firstAttribute="centerX" secondItem="b8S-pe-r2D" secondAttribute="centerX" id="Erz-Y0-Buf"/>
                             <constraint firstItem="Gvt-R4-OGg" firstAttribute="leading" secondItem="xNu-na-j34" secondAttribute="leading" id="KzF-BM-abJ"/>
-                            <constraint firstItem="b8S-pe-r2D" firstAttribute="top" secondItem="xNu-na-j34" secondAttribute="topMargin" constant="-13" id="NNH-VM-kVb"/>
                             <constraint firstItem="7bg-Fm-Iud" firstAttribute="leading" secondItem="xNu-na-j34" secondAttribute="leadingMargin" constant="140" id="Nyg-hi-SCL"/>
-                            <constraint firstItem="b8S-pe-r2D" firstAttribute="leading" secondItem="xNu-na-j34" secondAttribute="leadingMargin" constant="52" id="Q71-Jo-QvN"/>
                             <constraint firstItem="xPQ-xC-miS" firstAttribute="centerX" secondItem="xNu-na-j34" secondAttribute="centerX" id="UDz-Qj-0hA"/>
-                            <constraint firstItem="At5-mx-yAI" firstAttribute="centerY" secondItem="Gvt-R4-OGg" secondAttribute="centerY" id="buO-SB-rFS"/>
+                            <constraint firstItem="b8S-pe-r2D" firstAttribute="centerX" secondItem="xNu-na-j34" secondAttribute="centerX" id="Ugh-TM-b6U"/>
                             <constraint firstItem="Gvt-R4-OGg" firstAttribute="top" secondItem="xNu-na-j34" secondAttribute="top" id="ekz-xh-CJ6"/>
                             <constraint firstItem="xPQ-xC-miS" firstAttribute="top" secondItem="7bg-Fm-Iud" secondAttribute="bottom" constant="20" id="g7h-7s-uoL"/>
                             <constraint firstItem="7bg-Fm-Iud" firstAttribute="top" secondItem="eKy-LJ-bdt" secondAttribute="bottom" constant="126" id="nMv-2e-4lD"/>
@@ -230,14 +221,15 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="activityIndicator" destination="At5-mx-yAI" id="Uo9-1Z-Xe6"/>
+                        <outlet property="addUserButton" destination="7bg-Fm-Iud" id="6RZ-VB-ehW"/>
+                        <outlet property="chargeButton" destination="xPQ-xC-miS" id="CgW-5l-b23"/>
                         <outlet property="usernameTableView" destination="eKy-LJ-bdt" id="bMz-WH-jUM"/>
                         <segue destination="yXz-Oi-Hqn" kind="presentation" identifier="segueToChooseItemView" id="6Zf-b6-y9Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9hh-Dc-GrN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1304.8" y="405.24737631184411"/>
+            <point key="canvasLocation" x="1297" y="395"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="6so-hB-aSe">
