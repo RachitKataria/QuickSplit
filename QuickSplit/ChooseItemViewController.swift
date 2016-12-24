@@ -13,12 +13,12 @@ class ChooseItemViewController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var receiptURL: String = ""
-    var usernames: [String] = []
     var image: UIImage?
     
     var usernameToButtonMap: [String:[OverlayButton]] = [:]
     var buttons : [OverlayButton] = []
     var username: String?
+    var usernames: [String]!
     
     @IBOutlet weak var receiptImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -140,24 +140,14 @@ class ChooseItemViewController: UIViewController {
         MicrosoftOCR.loadAndParse(imageURL: receiptURL , completion: createOverlayButtons)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print(self.usernames)
         print(self.usernameToButtonMap)
         
-        if(segue.identifier == "doneButtonToUsernameVC") {
+        if(segue.identifier == "doneButtonToUsernameVC" || segue.identifier == "backButtonToUsernameVC") {
             let a = segue.destination as! ChooseUsernameViewController
             a.usernameToButtonMap = self.usernameToButtonMap
-            a.usernames = self.usernames
             a.receiptImage = self.image!
             a.imageURL = self.receiptURL
-        }
-        else if(segue.identifier == "backButtonToUsernameVC") {
-            print("Getting in now")
-            let a = segue.destination as! ChooseUsernameViewController
-            a.usernameToButtonMap = self.usernameToButtonMap
             a.usernames = self.usernames
-            a.receiptImage = self.image!
-            a.imageURL = self.receiptURL
         }
-        
     }
 }

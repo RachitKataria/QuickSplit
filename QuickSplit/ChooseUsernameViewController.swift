@@ -120,6 +120,8 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
         }
         
         for username in usernameToButtonMap.keys {
+            price = 0;
+
             for button in usernameToButtonMap[username]! {
                 if(buttonYToCountMap[button.frame.minY] != nil) {
                     price += button.getPrice() / Double(buttonYToCountMap[button.frame.minY]!)
@@ -128,8 +130,6 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
             
             let user = User(usrname: username, price: price)
             users.append(user)
-            
-            price = 0
         }
         
         
@@ -150,8 +150,8 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
             csvc.image = self.receiptImage!
             csvc.receiptURL = self.imageURL!
             csvc.username = usernames[self.usernameTableView.indexPathForSelectedRow!.row]
-            csvc.usernames = self.usernames
             csvc.usernameToButtonMap = self.usernameToButtonMap
+            csvc.usernames = self.usernames
         }
         else if(segue.identifier == "showVenmoVC") {
             let a = segue.destination as! Checkout2ViewController
