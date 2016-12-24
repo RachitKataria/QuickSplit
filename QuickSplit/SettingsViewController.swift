@@ -120,6 +120,12 @@ class SettingsViewController: UIViewController, CLLocationManagerDelegate {
             //Current City label should display current city
             currentCityLabel.text = currLocation
             
+            let defaults = UserDefaults.standard
+            defaults.set(currLocation, forKey: "city")
+            defaults.synchronize()
+            zip = currLocation
+            fetchTaxRate(query: zip)
+            
         }
         else { //Search for a city
             let newWordPrompt = UIAlertController(title: "Enter zip code", message: "Zip Code", preferredStyle: UIAlertControllerStyle.alert)
