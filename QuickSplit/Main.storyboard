@@ -202,15 +202,28 @@
                                     <constraint firstAttribute="height" constant="20" id="tRL-2h-pN7"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Refining image" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NXh-lY-1XW">
+                                <rect key="frame" x="130" y="458" width="114" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="aLU-v3-Ao7">
+                                <rect key="frame" x="252" y="459" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="b8S-pe-r2D" firstAttribute="top" secondItem="xNu-na-j34" secondAttribute="top" constant="30" id="2yc-ew-6rL"/>
                             <constraint firstItem="eKy-LJ-bdt" firstAttribute="centerX" secondItem="xNu-na-j34" secondAttribute="centerX" id="3Ni-3D-wrR"/>
+                            <constraint firstItem="aLU-v3-Ao7" firstAttribute="centerY" secondItem="NXh-lY-1XW" secondAttribute="centerY" id="7jW-A4-QyQ"/>
                             <constraint firstItem="sgS-k4-nY5" firstAttribute="top" secondItem="xPQ-xC-miS" secondAttribute="bottom" constant="30" id="7tO-uO-meX"/>
                             <constraint firstItem="eKy-LJ-bdt" firstAttribute="top" secondItem="b8S-pe-r2D" secondAttribute="bottom" constant="31" id="8QL-fx-Yed"/>
+                            <constraint firstItem="7bg-Fm-Iud" firstAttribute="top" secondItem="NXh-lY-1XW" secondAttribute="bottom" constant="18" id="8v3-4D-skb"/>
+                            <constraint firstItem="aLU-v3-Ao7" firstAttribute="leading" secondItem="NXh-lY-1XW" secondAttribute="trailing" constant="8" id="966-LC-WSD"/>
                             <constraint firstItem="sgS-k4-nY5" firstAttribute="top" secondItem="Gvt-R4-OGg" secondAttribute="bottom" id="Dwj-dK-eF8"/>
                             <constraint firstItem="Gvt-R4-OGg" firstAttribute="leading" secondItem="xNu-na-j34" secondAttribute="leading" id="KzF-BM-abJ"/>
+                            <constraint firstItem="NXh-lY-1XW" firstAttribute="centerX" secondItem="xNu-na-j34" secondAttribute="centerX" id="Qlw-qS-jrO"/>
                             <constraint firstItem="xPQ-xC-miS" firstAttribute="centerX" secondItem="xNu-na-j34" secondAttribute="centerX" id="UDz-Qj-0hA"/>
                             <constraint firstItem="b8S-pe-r2D" firstAttribute="centerX" secondItem="xNu-na-j34" secondAttribute="centerX" id="Ugh-TM-b6U"/>
                             <constraint firstItem="xPQ-xC-miS" firstAttribute="centerX" secondItem="xNu-na-j34" secondAttribute="centerX" id="UjM-pf-Afx"/>
@@ -224,13 +237,15 @@
                     <connections>
                         <outlet property="addUserButton" destination="7bg-Fm-Iud" id="6RZ-VB-ehW"/>
                         <outlet property="chargeButton" destination="xPQ-xC-miS" id="CgW-5l-b23"/>
+                        <outlet property="loadingImageActivityIndicator" destination="aLU-v3-Ao7" id="cjk-Q6-6em"/>
+                        <outlet property="uploadingImageLabel" destination="NXh-lY-1XW" id="wTe-Nk-qwQ"/>
                         <outlet property="usernameTableView" destination="eKy-LJ-bdt" id="bMz-WH-jUM"/>
                         <segue destination="yXz-Oi-Hqn" kind="presentation" identifier="segueToChooseItemView" id="6Zf-b6-y9Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9hh-Dc-GrN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1297" y="395"/>
+            <point key="canvasLocation" x="1296.8" y="394.45277361319341"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="6so-hB-aSe">

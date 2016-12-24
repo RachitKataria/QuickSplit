@@ -14,6 +14,9 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
     @IBOutlet weak var addUserButton: UIButton!
     @IBOutlet weak var chargeButton: UIButton!
     
+    @IBOutlet weak var uploadingImageLabel: UILabel!
+    @IBOutlet weak var loadingImageActivityIndicator: UIActivityIndicatorView!
+    
     var receiptImage : UIImage?
     var imageURL : String?
     var numUsernames:Int = 1;
@@ -38,16 +41,13 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
         }
         
         if(self.imageURL == nil) {
-            DispatchQueue.main.async {
-                //CHANGE LATER
-                self.addUserButton.isEnabled = false
-            }
-            // upload
+            
             ImgurUpload.upload(image: receiptImage!, completion: {(link: String) -> Void in
                 self.imageURL = link
                 DispatchQueue.main.async {
                     self.addUserButton.isEnabled = true
-                    
+                    self.loadingImageActivityIndicator.isHidden = true
+                    self.uploadingImageLabel.isHidden = true
                     if(self.usernames.count != 0) {
                         self.chargeButton.isEnabled = true;
                     }
@@ -61,6 +61,17 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
         // Do any additional setup after loading the view.
         
         self.usernameTableView.reloadData()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        if(self.imageURL == nil) {
+            self.addUserButton.isEnabled = false
+            self.loadingImageActivityIndicator.startAnimating()
+        }
+        else {
+            self.loadingImageActivityIndicator.isHidden = true
+            self.uploadingImageLabel.isHidden = true
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -121,7 +132,7 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
         
         for username in usernameToButtonMap.keys {
             price = 0;
-
+            
             for button in usernameToButtonMap[username]! {
                 if(buttonYToCountMap[button.frame.minY] != nil) {
                     price += button.getPrice() / Double(buttonYToCountMap[button.frame.minY]!)
