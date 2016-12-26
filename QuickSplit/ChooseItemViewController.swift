@@ -19,10 +19,37 @@ class ChooseItemViewController: UIViewController {
     var buttons : [OverlayButton] = []
     var username: String?
     var usernames: [String]!
-    
+    var clicked = false
+    var newTipField: UITextField?
+
+    @IBOutlet weak var buttonTip: UIButton!
     @IBOutlet weak var receiptImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     
+    @IBAction func clickButton(_ sender: Any) {
+        clicked = !clicked
+        if(clicked == true) {
+            //Use the empty checkbox symbol
+            buttonTip.imageView?.image = UIImage(named: "CheckedBox")
+            //Bring up alert view
+            let newTipAmount = UIAlertController(title: "Enter Tip Percentage", message: "Example: Enter 9 for 9%", preferredStyle: UIAlertControllerStyle.alert)
+            newTipAmount.addTextField(configurationHandler: addTextField)
+            newTipAmount.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
+            newTipAmount.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: tipEntered))
+            present(newTipAmount, animated: true, completion: nil)
+        }
+        else {
+            //use the filled checkbox symbol
+            buttonTip.imageView?.image = UIImage(named: "UncheckedBox")
+            
+        }
+        
+    }
+    
+    func tipEntered(alert: UIAlertAction!){
+        // store the new word
+        print(newTipField?.text)
+    }
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -32,7 +59,6 @@ class ChooseItemViewController: UIViewController {
         //do call with the url
         
         usernameLabel.text = username!
-        // Do any additional setup after loading the view.
         
         readReceipt(url: receiptURL)
         
@@ -46,7 +72,11 @@ class ChooseItemViewController: UIViewController {
         receiptImageView.layer.shadowPath = UIBezierPath(rect: receiptImageView.bounds).cgPath
         
     }
-    
+    func addTextField(textField: UITextField!){
+        // add the text field and make the result global
+        textField.placeholder = "Definition"
+        self.newTipField = textField
+    }
     func buttonAction(sender: OverlayButton!) {
         sender.checkSelected()
     }
