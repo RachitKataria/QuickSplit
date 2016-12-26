@@ -21,7 +21,7 @@ class ChooseItemViewController: UIViewController {
     var usernames: [String]!
     var clicked = false
     var newTipField: UITextField?
-
+    var tipAmount = 0
     @IBOutlet weak var buttonTip: UIButton!
     @IBOutlet weak var receiptImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -48,7 +48,8 @@ class ChooseItemViewController: UIViewController {
     
     func tipEntered(alert: UIAlertAction!){
         // store the new word
-        print(newTipField?.text)
+        tipAmount = Int((newTipField?.text)!)!
+        //TODO: add a check for if they don't enter an integer
     }
     override func viewDidLoad() {
         
