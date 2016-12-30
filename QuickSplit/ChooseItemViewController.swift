@@ -54,7 +54,7 @@ class ChooseItemViewController: UIViewController {
         
         //Save the entered value into a variable
         
-        //Change the label
+        //Change the label to show what will be applied
         
         //Save in user defaults
     }
