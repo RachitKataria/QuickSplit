@@ -48,8 +48,25 @@ class ChooseItemViewController: UIViewController {
     
     func tipEntered(alert: UIAlertAction!){
         // store the new word
-        tipAmount = Int((newTipField?.text)!)!
-        //TODO: add a check for if they don't enter an integer
+        if(Int((newTipField?.text)!) != nil) {
+            tipAmount = Int((newTipField?.text)!)!
+        }
+        else {
+                let alertVC = UIAlertController(
+                    title: "Invalid Amount Entered",
+                    message: "",
+                    preferredStyle: .alert)
+                let okAction = UIAlertAction(
+                    title: "OK",
+                    style:.default,
+                    handler: nil)
+                alertVC.addAction(okAction)
+                present(
+                    alertVC,
+                    animated: true,
+                    completion: nil)
+            
+        }
     }
     override func viewDidLoad() {
         
