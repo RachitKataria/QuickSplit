@@ -28,7 +28,8 @@ class ChooseItemViewController: UIViewController {
     @IBOutlet weak var buttonTax: UIButton!
     @IBOutlet weak var receiptImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
-    
+    @IBOutlet weak var taxPromptLabel: UILabel!
+    @IBOutlet weak var changePercentagePromptLabel: UILabel!
     @IBAction func toggleTax(_ sender: Any) {
         clickedTax = !clickedTax
         if(clickedTax == true) {
@@ -37,12 +38,25 @@ class ChooseItemViewController: UIViewController {
             taxAmount = defaults.integer(forKey: "taxPercentage")
             
             //Change label to display this taxAmount:
-            
+            taxPromptLabel.text = "Applying \(taxAmount) to each user's portion.)"
+            changePercentagePromptLabel.isHidden = false
         }
         else {
             buttonTax.imageView?.image = UIImage(named: "UncheckedBox")
             taxAmount = 0
+            taxPromptLabel.text = "Apply tax to each user's portion?"
+            changePercentagePromptLabel.isHidden = true
         }
+    }
+    @IBAction func percentageTappedToChange(_ sender: Any) {
+        //TODO:
+        //Bring up alertview
+        
+        //Save the entered value into a variable
+        
+        //Change the label
+        
+        //Save in user defaults
     }
     @IBAction func clickButton(_ sender: Any) {
         clicked = !clicked
@@ -88,6 +102,7 @@ class ChooseItemViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        changePercentagePromptLabel.isHidden = true
         activityIndicator.startAnimating()
         
         receiptImageView.image = self.image
