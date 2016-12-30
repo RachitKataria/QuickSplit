@@ -61,7 +61,13 @@ class SettingsViewController: UIViewController, CLLocationManagerDelegate {
         let task : URLSessionDataTask = session.dataTask(with: request as URLRequest, completionHandler: { (dataOrNil, response, error) in
             if let data = dataOrNil {
                 if let responseDictionary = try! JSONSerialization.jsonObject(with: data, options:[]) as? NSDictionary {
+                    let taxPercentage = responseDictionary.value(forKeyPath: "totalRate")
                     self.taxPercentageLabel.text = "\(responseDictionary.value(forKeyPath: "totalRate")!)%"
+                    
+                    //Save tax percentage in NSUserDefaults
+                    let defaults = UserDefaults.standard
+                    defaults.set(taxPercentage, forKey: "taxPercentage")
+                    defaults.synchronize()
                 }
             }
         });

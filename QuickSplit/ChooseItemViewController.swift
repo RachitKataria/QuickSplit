@@ -20,12 +20,30 @@ class ChooseItemViewController: UIViewController {
     var username: String?
     var usernames: [String]!
     var clicked = false
+    var clickedTax = false
     var newTipField: UITextField?
     var tipAmount = 0
+    var taxAmount = 0
     @IBOutlet weak var buttonTip: UIButton!
+    @IBOutlet weak var buttonTax: UIButton!
     @IBOutlet weak var receiptImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     
+    @IBAction func toggleTax(_ sender: Any) {
+        clickedTax = !clickedTax
+        if(clickedTax == true) {
+            buttonTax.imageView?.image = UIImage(named: "CheckedBox")
+            let defaults = UserDefaults.standard
+            taxAmount = defaults.integer(forKey: "taxPercentage")
+            
+            //Change label to display this taxAmount:
+            
+        }
+        else {
+            buttonTax.imageView?.image = UIImage(named: "UncheckedBox")
+            taxAmount = 0
+        }
+    }
     @IBAction func clickButton(_ sender: Any) {
         clicked = !clicked
         if(clicked == true) {
@@ -41,9 +59,8 @@ class ChooseItemViewController: UIViewController {
         else {
             //use the filled checkbox symbol
             buttonTip.imageView?.image = UIImage(named: "UncheckedBox")
-            
+            tipAmount = 0
         }
-        
     }
     
     func tipEntered(alert: UIAlertAction!){
