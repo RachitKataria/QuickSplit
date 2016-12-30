@@ -371,9 +371,13 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Q0-TD-Iw0">
-                                <rect key="frame" x="323" y="622" width="37" height="30"/>
-                                <state key="normal" title="Done"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Q0-TD-Iw0">
+                                <rect key="frame" x="331" y="634" width="28" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="24" id="Jqm-N0-Aik"/>
+                                    <constraint firstAttribute="width" constant="28" id="RNG-ER-3tP"/>
+                                </constraints>
+                                <state key="normal" image="Arrow"/>
                                 <connections>
                                     <action selector="doneButtonClicked:" destination="yXz-Oi-Hqn" eventType="touchUpInside" id="uwP-J2-Pxh"/>
                                     <segue destination="pgv-jN-LOR" kind="show" identifier="doneButtonToUsernameVC" id="Gc0-jT-Rci"/>
@@ -419,7 +423,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Apply a tip to each user's portion?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="puV-mO-YeL">
                                 <rect key="frame" x="49" y="566" width="277" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cma-Ra-ncP">
@@ -432,7 +436,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Apply tax to each user's portion?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KLt-V1-XvX">
                                 <rect key="frame" x="49" y="593" width="264" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the percentage to change rate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qv4-se-Bvc">
@@ -442,7 +446,7 @@
                                     <constraint firstAttribute="width" constant="213" id="dHy-Ux-s95"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4gQ-Hc-MyZ">
@@ -474,13 +478,13 @@
                             <constraint firstItem="Dg4-1L-W6U" firstAttribute="top" secondItem="Qv4-se-Bvc" secondAttribute="bottom" constant="34" id="TCZ-qt-Omx"/>
                             <constraint firstItem="aCh-Ab-PUt" firstAttribute="centerY" secondItem="Tu8-6X-IGs" secondAttribute="centerY" constant="-17" id="VBn-vb-TH4"/>
                             <constraint firstItem="puV-mO-YeL" firstAttribute="leading" secondItem="V9t-Ol-eeA" secondAttribute="trailing" constant="8" symbolic="YES" id="VSC-I2-3R5"/>
+                            <constraint firstItem="9Q0-TD-Iw0" firstAttribute="trailing" secondItem="Tu8-6X-IGs" secondAttribute="trailingMargin" id="bqo-2Z-aYz"/>
                             <constraint firstItem="Cma-Ra-ncP" firstAttribute="top" secondItem="V9t-Ol-eeA" secondAttribute="bottom" constant="15" id="cbf-Cl-EY3"/>
                             <constraint firstItem="gxI-9n-baR" firstAttribute="leading" secondItem="Tu8-6X-IGs" secondAttribute="leadingMargin" constant="-3" id="epF-bm-QfE"/>
                             <constraint firstItem="sYz-xz-dzC" firstAttribute="centerX" secondItem="Tu8-6X-IGs" secondAttribute="centerX" id="kEn-GN-fpO"/>
-                            <constraint firstItem="Dg4-1L-W6U" firstAttribute="top" secondItem="9Q0-TD-Iw0" secondAttribute="bottom" constant="15" id="mcS-hO-GSa"/>
+                            <constraint firstItem="Dg4-1L-W6U" firstAttribute="top" secondItem="9Q0-TD-Iw0" secondAttribute="bottom" constant="9" id="khl-cG-3V4"/>
                             <constraint firstItem="KLt-V1-XvX" firstAttribute="leading" secondItem="Cma-Ra-ncP" secondAttribute="trailing" constant="8" symbolic="YES" id="mvT-gQ-0H6"/>
                             <constraint firstItem="Cma-Ra-ncP" firstAttribute="bottom" secondItem="KLt-V1-XvX" secondAttribute="bottom" id="sTU-tn-O6E"/>
-                            <constraint firstItem="9Q0-TD-Iw0" firstAttribute="leading" secondItem="Qv4-se-Bvc" secondAttribute="trailing" constant="61" id="w8c-Ir-CTL"/>
                             <constraint firstItem="GN5-MD-P6d" firstAttribute="centerY" secondItem="Tu8-6X-IGs" secondAttribute="centerY" id="yRq-EM-UU4"/>
                             <constraint firstItem="V9t-Ol-eeA" firstAttribute="centerY" secondItem="puV-mO-YeL" secondAttribute="centerY" id="yiv-cC-cQo"/>
                             <constraint firstItem="Cma-Ra-ncP" firstAttribute="leading" secondItem="V9t-Ol-eeA" secondAttribute="leading" id="zjn-Gm-9cq"/>
@@ -603,6 +607,7 @@
     </scenes>
     <resources>
         <image name="Add Venmo username" width="426" height="36"/>
+        <image name="Arrow" width="48" height="48"/>
         <image name="Back" width="183" height="66"/>
         <image name="Background" width="1125" height="2001"/>
         <image name="CameraButton" width="192" height="192"/>
