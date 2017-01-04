@@ -27,21 +27,21 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Group" translatesAutoresizingMaskIntoConstraints="NO" id="Put-0c-xHG">
-                                <rect key="frame" x="36" y="141" width="303" height="413"/>
+                                <rect key="frame" x="62" y="139" width="253" height="363"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="413" id="0Rp-Q4-ceJ"/>
-                                    <constraint firstAttribute="width" constant="303" id="5Hk-s5-HMQ"/>
+                                    <constraint firstAttribute="height" constant="363" id="PEI-GI-bLJ"/>
+                                    <constraint firstAttribute="width" constant="253" id="yLF-0S-fqa"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ucG-oh-cJS">
-                                <rect key="frame" x="156" y="562" width="64" height="64"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PgF-3y-jnX">
+                                <rect key="frame" x="240" y="513" width="25" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="64" id="QsJ-1N-vx2"/>
-                                    <constraint firstAttribute="height" constant="64" id="Ro3-Nd-Dyk"/>
+                                    <constraint firstAttribute="width" constant="25" id="TxU-MK-DGB"/>
+                                    <constraint firstAttribute="height" constant="25" id="yWS-or-vfb"/>
                                 </constraints>
-                                <state key="normal" image="CameraButton"/>
+                                <state key="normal" image="grid-view"/>
                                 <connections>
-                                    <action selector="uploadButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bJq-ke-7b7"/>
+                                    <action selector="uploadFromCameraRollClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hhh-NF-Psx"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="SPLIT" translatesAutoresizingMaskIntoConstraints="NO" id="1a6-FW-kan">
@@ -58,30 +58,30 @@
                                     <constraint firstAttribute="width" constant="200" id="eI0-Oz-3Wj"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PgF-3y-jnX">
-                                <rect key="frame" x="243" y="582" width="25" height="25"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ucG-oh-cJS">
+                                <rect key="frame" x="156" y="510" width="64" height="64"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="0pg-is-Spp"/>
-                                    <constraint firstAttribute="width" constant="25" id="Cpq-zc-dj1"/>
+                                    <constraint firstAttribute="height" constant="64" id="8gG-r8-SS3"/>
+                                    <constraint firstAttribute="width" constant="64" id="IMa-JW-VuK"/>
                                 </constraints>
-                                <state key="normal" image="grid-view"/>
+                                <state key="normal" image="CameraButton"/>
                                 <connections>
-                                    <action selector="uploadFromCameraRollClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hhh-NF-Psx"/>
+                                    <action selector="uploadButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bJq-ke-7b7"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="PgF-3y-jnX" firstAttribute="top" secondItem="Put-0c-xHG" secondAttribute="bottom" constant="28" id="62w-7F-HUU"/>
-                            <constraint firstItem="PgF-3y-jnX" firstAttribute="leading" secondItem="ucG-oh-cJS" secondAttribute="trailing" constant="23" id="M3n-zt-XK2"/>
-                            <constraint firstItem="ucG-oh-cJS" firstAttribute="top" secondItem="Put-0c-xHG" secondAttribute="bottom" constant="10" id="MB3-km-kZh"/>
+                            <constraint firstItem="Put-0c-xHG" firstAttribute="top" secondItem="mr9-Ya-eCr" secondAttribute="bottom" constant="8" id="GGa-EL-2sr"/>
+                            <constraint firstItem="Put-0c-xHG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="1" id="Jmw-m4-Qjg"/>
+                            <constraint firstItem="PgF-3y-jnX" firstAttribute="leading" secondItem="ucG-oh-cJS" secondAttribute="trailing" constant="20" id="JrD-9A-xFL"/>
                             <constraint firstItem="1a6-FW-kan" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="OUf-AL-xjj"/>
                             <constraint firstItem="mr9-Ya-eCr" firstAttribute="top" secondItem="1a6-FW-kan" secondAttribute="bottom" constant="8" id="bpH-9y-Gal"/>
                             <constraint firstItem="mr9-Ya-eCr" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cIP-re-lNp"/>
-                            <constraint firstItem="Put-0c-xHG" firstAttribute="top" secondItem="mr9-Ya-eCr" secondAttribute="bottom" constant="10" id="hcI-3h-sGL"/>
                             <constraint firstItem="1a6-FW-kan" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="10" id="iiH-ss-ddG"/>
-                            <constraint firstItem="ucG-oh-cJS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="kBZ-gM-VvF"/>
-                            <constraint firstItem="Put-0c-xHG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oA3-3G-sa0"/>
+                            <constraint firstItem="PgF-3y-jnX" firstAttribute="top" secondItem="Put-0c-xHG" secondAttribute="bottom" constant="11" id="isV-e3-DpJ"/>
+                            <constraint firstItem="ucG-oh-cJS" firstAttribute="top" secondItem="Put-0c-xHG" secondAttribute="bottom" id="lHK-KW-whw"/>
+                            <constraint firstItem="ucG-oh-cJS" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pw4-kC-Jzv"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Cs8-Ja-bq5">
