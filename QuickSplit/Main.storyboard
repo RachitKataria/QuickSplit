@@ -147,6 +147,7 @@
                                     <constraint firstAttribute="height" constant="300" id="F5e-Nl-iy2"/>
                                     <constraint firstAttribute="width" constant="310" id="Z2U-T4-ahe"/>
                                 </constraints>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" alpha="0.40000000000000002" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UsernameCell" id="Hfg-fh-Chi" customClass="UsernameTableViewCell" customModule="QuickSplit" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="310" height="44"/>
@@ -184,6 +185,7 @@
                                                 <constraint firstItem="EcI-QP-MSd" firstAttribute="top" secondItem="bU6-aj-rN2" secondAttribute="topMargin" id="fLH-sS-n8D"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="segueButton" destination="pdy-th-6F5" id="0Ij-fU-alj"/>
                                             <outlet property="usernameLabel" destination="EcI-QP-MSd" id="xhy-KN-T9V"/>
