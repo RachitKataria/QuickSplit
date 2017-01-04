@@ -30,10 +30,13 @@ class ChooseItemViewController: UIViewController {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var taxPromptLabel: UILabel!
     @IBOutlet weak var changePercentagePromptLabel: UILabel!
+    
     @IBAction func toggleTax(_ sender: Any) {
         clickedTax = !clickedTax
         if(clickedTax == true) {
-            buttonTax.imageView?.image = UIImage(named: "CheckedBox")
+            let imageChecked = UIImage(named: "CheckedBox")
+            buttonTax.setImage(imageChecked, for: .normal)
+            //buttonTax.imageView?.image = UIImage(named: "CheckedBox")
             let defaults = UserDefaults.standard
             taxAmount = defaults.integer(forKey: "taxPercentage")
             
@@ -42,7 +45,8 @@ class ChooseItemViewController: UIViewController {
             changePercentagePromptLabel.isHidden = false
         }
         else {
-            buttonTax.imageView?.image = UIImage(named: "UncheckedBox")
+            let imageUnchecked = UIImage(named: "UncheckedBox")
+            buttonTax.setImage(imageUnchecked, for: .normal)
             taxAmount = 0
             taxPromptLabel.text = "Apply tax to each user's portion?"
             changePercentagePromptLabel.isHidden = true
@@ -62,7 +66,8 @@ class ChooseItemViewController: UIViewController {
         clicked = !clicked
         if(clicked == true) {
             //Use the empty checkbox symbol
-            buttonTip.imageView?.image = UIImage(named: "CheckedBox")
+            let imageChecked = UIImage(named: "CheckedBox")
+            buttonTip.setImage(imageChecked, for: .normal)
             //Bring up alert view
             let newTipAmount = UIAlertController(title: "Enter Tip Percentage", message: "Example: Enter 9 for 9%", preferredStyle: UIAlertControllerStyle.alert)
             newTipAmount.addTextField(configurationHandler: addTextField)
@@ -72,7 +77,8 @@ class ChooseItemViewController: UIViewController {
         }
         else {
             //use the filled checkbox symbol
-            buttonTip.imageView?.image = UIImage(named: "UncheckedBox")
+            let imageUnchecked = UIImage(named: "UncheckedBox")
+            buttonTip.setImage(imageUnchecked, for: .normal)
             tipAmount = 0
         }
     }
