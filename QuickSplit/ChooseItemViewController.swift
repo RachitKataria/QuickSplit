@@ -65,11 +65,9 @@ class ChooseItemViewController: UIViewController {
     @IBAction func clickButton(_ sender: Any) {
         clicked = !clicked
         if(clicked == true) {
-            //Use the empty checkbox symbol
-            let imageChecked = UIImage(named: "CheckedBox")
-            buttonTip.setImage(imageChecked, for: .normal)
+
             //Bring up alert view
-            let newTipAmount = UIAlertController(title: "Enter Tip Percentage", message: "Example: Enter 9 for 9%", preferredStyle: UIAlertControllerStyle.alert)
+            let newTipAmount = UIAlertController(title: "Enter Tip Percentage", message: "Example: Enter 15 for 15%", preferredStyle: UIAlertControllerStyle.alert)
             newTipAmount.addTextField(configurationHandler: addTextField)
             newTipAmount.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
             newTipAmount.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: tipEntered))
@@ -86,6 +84,9 @@ class ChooseItemViewController: UIViewController {
     func tipEntered(alert: UIAlertAction!){
         // store the new word
         if(Int((newTipField?.text)!) != nil) {
+            //Use the empty checkbox symbol
+            let imageChecked = UIImage(named: "CheckedBox")
+            buttonTip.setImage(imageChecked, for: .normal)
             tipAmount = Int((newTipField?.text)!)!
         }
         else {
@@ -105,6 +106,7 @@ class ChooseItemViewController: UIViewController {
             
         }
     }
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
