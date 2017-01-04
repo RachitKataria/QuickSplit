@@ -22,6 +22,10 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
     var numUsernames:Int = 1;
     var usernames: [String] = []
     
+    // Tip and Tax
+    var tipAmount: Double;
+    var taxAmount: Double;
+    
     var usernameToButtonMap: [String:[OverlayButton]] = [:]
     var users: [User] = []
     
@@ -122,6 +126,7 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
         var tipChecked: Bool
         var taxChecked: Bool
         
+        
         for username in usernameToButtonMap.keys {
             for button in usernameToButtonMap[username]! {
                 if(buttonYToCountMap[button.frame.minY] == nil) {
@@ -140,6 +145,14 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
                 if(buttonYToCountMap[button.frame.minY] != nil) {
                     price += button.getPrice() / Double(buttonYToCountMap[button.frame.minY]!)
                 }
+            }
+            
+            // Tax and tip calculation logic
+            if(taxChecked) {
+                price += ((taxAmount / 100) * price)
+            }
+            if (tipChecked) {
+                price += (tipAmount / Double(usernameToButtonMap.count))
             }
             
             let user = User(usrname: username, price: price)
