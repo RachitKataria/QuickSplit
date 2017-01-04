@@ -24,22 +24,7 @@ class SettingsViewController: UIViewController, CLLocationManagerDelegate {
     var results: NSArray = []
     var zip = ""
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        
-        //LOAD FROM USER DEFAULTS
-        let defaults = UserDefaults.standard
-        let savedIndex = defaults.integer(forKey: "selectedIndex")
-        segmentedControl.selectedSegmentIndex = (savedIndex)
-        
-        let city = defaults.object(forKey: "city") as? String
-        if(city != nil) {
-            currentCityLabel.text = city!
-            zip = city!
-        }
-        
-        fetchTaxRate(query: zip)
-
         
         //Location setup
         locationManager.delegate = self //sets the class as delegate for locationManager
@@ -47,6 +32,19 @@ class SettingsViewController: UIViewController, CLLocationManagerDelegate {
         //locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation() //starts receiving location updates from CoreLocation
+        
+        //LOAD FROM USER DEFAULTS
+        let defaults = UserDefaults.standard
+        let savedIndex = defaults.integer(forKey: "selectedIndex")
+        segmentedControl.selectedSegmentIndex = savedIndex
+        
+        let city = defaults.object(forKey: "city") as? String
+        if(city != nil) {
+            currentCityLabel.text = city!
+            zip = city!
+            fetchTaxRate(query: zip)
+
+        }
     }
 
     func fetchTaxRate(query: String) {
@@ -107,18 +105,26 @@ class SettingsViewController: UIViewController, CLLocationManagerDelegate {
     
     func addTextField(textField: UITextField!){
         // add the text field and make the result global
-        textField.placeholder = "Definition"
+        textField.placeholder = "Zip Code"
         self.newWordField = textField
     }
     func zipEntered(alert: UIAlertAction!){
         // store the new word
-        self.currentCityLabel.text = self.newWordField?.text
+        let inputZip = Int((self.newWordField?.text)!)
+        if(inputZip != nil && inputZip! >= 11111 && inputZip! <= 999999) {
+            self.currentCityLabel.text = self.newWordField?.text
+            
+            let defaults = UserDefaults.standard
+            defaults.set(self.newWordField?.text, forKey: "city")
+            defaults.synchronize()
+            zip = (self.newWordField?.text)!
+            fetchTaxRate(query: zip)
+        }
+        else {
+            print("invalid input")
+        }
         
-        let defaults = UserDefaults.standard
-        defaults.set(self.newWordField?.text, forKey: "city")
-        defaults.synchronize()
-        zip = (self.newWordField?.text)!
-        fetchTaxRate(query: zip)
+        
         
     }
     @IBAction func segControlValueChanged(_ sender: Any) {

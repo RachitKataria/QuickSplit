@@ -119,6 +119,9 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
         
         var price: Double = 0
         
+        var tipChecked: Bool
+        var taxChecked: Bool
+        
         for username in usernameToButtonMap.keys {
             for button in usernameToButtonMap[username]! {
                 if(buttonYToCountMap[button.frame.minY] == nil) {
