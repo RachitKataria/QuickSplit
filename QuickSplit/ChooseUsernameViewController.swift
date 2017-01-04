@@ -23,8 +23,8 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
     var usernames: [String] = []
     
     // Tip and Tax
-    var tipAmount: Double;
-    var taxAmount: Double;
+    var tipAmount: Double = 0.0
+    var taxAmount: Double = 0.0;
     
     var usernameToButtonMap: [String:[OverlayButton]] = [:]
     var users: [User] = []
@@ -126,7 +126,10 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
         var tipChecked: Bool
         var taxChecked: Bool
         
-        
+        //Putting this here for now:
+        //TODO - check later
+        tipChecked = false
+        taxChecked = false
         for username in usernameToButtonMap.keys {
             for button in usernameToButtonMap[username]! {
                 if(buttonYToCountMap[button.frame.minY] == nil) {
