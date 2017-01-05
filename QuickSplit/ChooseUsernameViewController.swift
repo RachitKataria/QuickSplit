@@ -10,6 +10,20 @@ import UIKit
 
 class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    //Tax/tip options outlets
+    @IBOutlet weak var changeTaxRatePromptLabel: UILabel!
+    @IBOutlet weak var tipLabel: UILabel!
+    @IBOutlet weak var taxLabel: UILabel!
+    @IBOutlet weak var taxCheckbox: UIButton!
+    @IBOutlet weak var tipCheckbox: UIButton!
+    //tax/tip options variables
+    var clickedTip = false
+    var clickedTax = false
+    var newTipField: UITextField?
+    var tipAmount:Double = 0.0
+    var taxAmount:Double = 0.0
+
+    
     @IBOutlet weak var chooseUsersLabel: UILabel!
     @IBOutlet weak var addUserButton: UIButton!
     @IBOutlet weak var chargeButton: UIButton!
@@ -23,8 +37,7 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
     var usernames: [String] = []
     
     // Tip and Tax
-    var tipAmount: Double = 0.0
-    var taxAmount: Double = 0.0;
+    
     
     var usernameToButtonMap: [String:[OverlayButton]] = [:]
     var users: [User] = []
@@ -82,6 +95,20 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    
+    //Tax/tip actions:
+    
+    @IBAction func tipToggled(_ sender: Any) {
+    }
+    @IBAction func taxToggled(_ sender: Any) {
+    }
+    @IBAction func changeTaxRateTapped(_ sender: Any) {
+    }
+    
+    
+    
     
     @IBAction func addUserButtonClicked(_ sender: Any) {
         
