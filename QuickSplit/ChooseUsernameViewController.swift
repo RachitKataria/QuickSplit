@@ -36,9 +36,6 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
     var numUsernames:Int = 1;
     var usernames: [String] = []
     
-    // Tip and Tax
-    
-    
     var usernameToButtonMap: [String:[OverlayButton]] = [:]
     var users: [User] = []
     
@@ -101,12 +98,82 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
     //Tax/tip actions:
     
     @IBAction func tipToggled(_ sender: Any) {
+        clickedTip = !clickedTip
+        if(clickedTip == true) {
+            
+            //Bring up alert view
+            let newTipAmount = UIAlertController(title: "Enter Tip Percentage", message: "Example: Enter 15 for 15%", preferredStyle: UIAlertControllerStyle.alert)
+            newTipAmount.addTextField(configurationHandler: addTextField)
+            newTipAmount.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
+            newTipAmount.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: tipEntered))
+            present(newTipAmount, animated: true, completion: nil)
+        }
+        else {
+            //use the filled checkbox symbol
+            let imageUnchecked = UIImage(named: "UncheckedBox")
+            tipCheckbox.setImage(imageUnchecked, for: .normal)
+            tipAmount = 0
+        }
     }
     @IBAction func taxToggled(_ sender: Any) {
+        clickedTax = !clickedTax
+        if(clickedTax == true) {
+            let imageChecked = UIImage(named: "CheckedBox")
+            taxCheckbox.setImage(imageChecked, for: .normal)
+            //buttonTax.imageView?.image = UIImage(named: "CheckedBox")
+            let defaults = UserDefaults.standard
+            taxAmount = Double(defaults.integer(forKey: "taxPercentage"))
+            
+            //Change label to display this taxAmount:
+            taxLabel.text = "Applying \(taxAmount) to each user's portion.)"
+            changeTaxRatePromptLabel.isHidden = false
+        }
+        else {
+            let imageUnchecked = UIImage(named: "UncheckedBox")
+            taxCheckbox.setImage(imageUnchecked, for: .normal)
+            taxAmount = 0
+            taxLabel.text = "Apply tax to each user's portion?"
+            changeTaxRatePromptLabel.isHidden = true
+        }
+
     }
     @IBAction func changeTaxRateTapped(_ sender: Any) {
+        //TODO:
+        //Bring up alertview
+        
+        //Save the entered value into a variable
+        
+        //Change the label to show what will be applied
+        
+        //Save in user defaults
     }
     
+    func tipEntered(alert: UIAlertAction!){
+        // store the new word
+        if(Int((newTipField?.text)!) != nil) {
+            //Use the empty checkbox symbol
+            let imageChecked = UIImage(named: "CheckedBox")
+            buttonTip.setImage(imageChecked, for: .normal)
+            tipAmount = Int((newTipField?.text)!)!
+        }
+        else {
+            let alertVC = UIAlertController(
+                title: "Invalid Amount Entered",
+                message: "",
+                preferredStyle: .alert)
+            let okAction = UIAlertAction(
+                title: "OK",
+                style:.default,
+                handler: nil)
+            alertVC.addAction(okAction)
+            present(
+                alertVC,
+                animated: true,
+                completion: nil)
+            
+        }
+    }
+
     
     
     
