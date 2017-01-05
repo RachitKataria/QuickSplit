@@ -125,7 +125,7 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
             taxAmount = Double(defaults.integer(forKey: "taxPercentage"))
             
             //Change label to display this taxAmount:
-            taxLabel.text = "Applying \(taxAmount) to each user's portion.)"
+            taxLabel.text = "Applying \(taxAmount) to each user's portion."
             changeTaxRatePromptLabel.isHidden = false
         }
         else {
