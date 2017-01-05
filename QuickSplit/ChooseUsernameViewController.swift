@@ -114,6 +114,8 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
             let imageUnchecked = UIImage(named: "UncheckedBox")
             tipCheckbox.setImage(imageUnchecked, for: .normal)
             tipAmount = 0
+            //Change tip label back:
+            tipLabel.text = "Apply a tip to each user's portion"
         }
     }
     @IBAction func taxToggled(_ sender: Any) {
@@ -126,7 +128,7 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
             taxAmount = Double(defaults.integer(forKey: "taxPercentage"))
             
             //Change label to display this taxAmount:
-            taxLabel.text = "Applying \(taxAmount) to each user's portion."
+            taxLabel.text = "Applying \(taxAmount)% to each user's portion."
             changeTaxRatePromptLabel.isHidden = false
         }
         else {
@@ -175,7 +177,7 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
             defaults.set(taxAmount, forKey: "taxPercentage")
             
             //Update label
-            taxLabel.text = "Applying \(taxAmount) to each user's portion."
+            taxLabel.text = "Applying \(taxAmount)% to each user's portion."
             changeTaxRatePromptLabel.isHidden = false
             
         }
@@ -187,6 +189,10 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
             let imageChecked = UIImage(named: "CheckedBox")
             tipCheckbox.setImage(imageChecked, for: .normal)
             tipAmount = Double((newTipField?.text)!)!
+            //Change label
+            tipLabel.text = "Applying \(tipAmount)% to each user's portion."
+            
+
         }
         else {
             let alertVC = UIAlertController(
@@ -205,9 +211,6 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
             
         }
     }
-
-    
-    
     
     @IBAction func addUserButtonClicked(_ sender: Any) {
         
