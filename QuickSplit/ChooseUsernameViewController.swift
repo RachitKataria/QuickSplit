@@ -20,6 +20,7 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
     var clickedTip = false
     var clickedTax = false
     var newTipField: UITextField?
+    var newTaxField: UITextField?
     var tipAmount:Double = 0.0
     var taxAmount:Double = 0.0
 
@@ -103,7 +104,7 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
             
             //Bring up alert view
             let newTipAmount = UIAlertController(title: "Enter Tip Percentage", message: "Example: Enter 15 for 15%", preferredStyle: UIAlertControllerStyle.alert)
-            newTipAmount.addTextField(configurationHandler: addTextField)
+            newTipAmount.addTextField(configurationHandler: addTipTextField)
             newTipAmount.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
             newTipAmount.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: tipEntered))
             present(newTipAmount, animated: true, completion: nil)
@@ -140,17 +141,44 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
     @IBAction func changeTaxRateTapped(_ sender: Any) {
         //TODO:
         //Bring up alertview
-        
+        //Bring up alert view
+        let newTaxAmount = UIAlertController(title: "Enter Tax Percentage", message: "Example: Enter 15 for 15%", preferredStyle: UIAlertControllerStyle.alert)
+        newTaxAmount.addTextField(configurationHandler: addTaxTextField)
+        newTaxAmount.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
+        newTaxAmount.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: taxEntered))
+        present(newTaxAmount, animated: true, completion: nil)
         //Save the entered value into a variable
         
         //Change the label to show what will be applied
         
-        //Save in user defaults
+        
+        
+        
     }
-    func addTextField(textField: UITextField!){
+    func addTipTextField(textField: UITextField!){
         // add the text field and make the result global
-        textField.placeholder = "Definition"
+        textField.placeholder = "Tip Rate"
         self.newTipField = textField
+    }
+    func addTaxTextField(textField: UITextField!){
+        // add the text field and make the result global
+        textField.placeholder = "Tax Rate"
+        self.newTaxField = textField
+    }
+    func taxEntered(alert: UIAlertAction!) {
+        //Store tax 
+        if(Double((newTaxField?.text)!) != nil) {
+            taxAmount = Double((newTaxField?.text)!)!
+            
+            //Save in user defaults
+            let defaults = UserDefaults.standard
+            defaults.set(taxAmount, forKey: "taxPercentage")
+            
+            //Update label
+            taxLabel.text = "Applying \(taxAmount) to each user's portion."
+            changeTaxRatePromptLabel.isHidden = false
+            
+        }
     }
     func tipEntered(alert: UIAlertAction!){
         // store the new word
