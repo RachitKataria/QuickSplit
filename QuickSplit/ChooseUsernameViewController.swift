@@ -147,14 +147,18 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
         
         //Save in user defaults
     }
-    
+    func addTextField(textField: UITextField!){
+        // add the text field and make the result global
+        textField.placeholder = "Definition"
+        self.newTipField = textField
+    }
     func tipEntered(alert: UIAlertAction!){
         // store the new word
         if(Int((newTipField?.text)!) != nil) {
             //Use the empty checkbox symbol
             let imageChecked = UIImage(named: "CheckedBox")
-            buttonTip.setImage(imageChecked, for: .normal)
-            tipAmount = Int((newTipField?.text)!)!
+            tipCheckbox.setImage(imageChecked, for: .normal)
+            tipAmount = Double((newTipField?.text)!)!
         }
         else {
             let alertVC = UIAlertController(
@@ -184,7 +188,7 @@ class ChooseUsernameViewController: UIViewController, UITableViewDelegate, UITab
         alert.addTextField { (textField : UITextField!) -> Void in
             NotificationCenter.default.addObserver(self, selector: #selector(self.handleTextFieldTextDidChangeNotification), name: NSNotification.Name.UITextFieldTextDidChange, object: textField)
             
-            textField.placeholder = "John Doe"
+            textField.placeholder = "JohnDoe"
         }
         
         
